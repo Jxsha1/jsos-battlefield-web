@@ -19,7 +19,7 @@
           Submission Successful
         </h3>
         <p class="text-sm text-brandOffWhite">
-          Thank you for booking your trial. We are now redirecting you to connect instantly with our team.
+          Thank you for booking your trial. We are now transferring you to connect instantly with our team.
         </p>
       </div>
 
@@ -32,7 +32,7 @@
         </p>
       </div>
 
-      <form id="trial-enquiry-form" class="space-y-6">
+      <form id="trial-enquiry-form" class="space-y-6" onsubmit="return false">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label for="fullname" class="block text-xs font-display font-bold uppercase tracking-wider text-brandGold mb-2">
@@ -133,13 +133,20 @@
           </label>
         </div>
 
-        <div class="pt-2">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
           <button 
-            type="submit" 
-            id="submit-btn"
-            class="w-full bg-brandGold text-brandBlack hover:bg-brandGoldDark font-display font-bold uppercase tracking-wider py-4 rounded transition-all duration-200 shadow-lg hover:shadow-brandGold/10"
+            type="button" 
+            id="whatsapp-submit-btn"
+            class="w-full bg-brandGold text-brandBlack hover:bg-brandGoldDark font-display font-bold text-sm uppercase tracking-wider py-4 rounded transition-all duration-200 shadow-lg hover:shadow-brandGold/10 flex items-center justify-center gap-2"
           >
-            Send through WhatsApp or Text
+            Send through WhatsApp
+          </button>
+          <button 
+            type="button" 
+            id="text-submit-btn"
+            class="w-full bg-neutral-900 hover:bg-neutral-800 border border-brandGold text-brandGold font-display font-bold text-sm uppercase tracking-wider py-4 rounded transition-all duration-200 shadow-lg flex items-center justify-center gap-2"
+          >
+            Send through Text
           </button>
         </div>
       </form>
@@ -148,18 +155,22 @@
 </section>
 
 <script>
-  const form = document.getElementById("trial-enquiry-form")
+  const form = document.getElementById("trial-enquiry-form") as HTMLFormElement
   const successBanner = document.getElementById("form-success")
   const errorBanner = document.getElementById("form-error")
-  const submitButton = document.getElementById("submit-btn")
+  const whatsappBtn = document.getElementById("whatsapp-submit-btn") as HTMLButtonElement
+  const textBtn = document.getElementById("text-submit-btn") as HTMLButtonElement
 
-  if (form && successBanner && errorBanner && submitButton) {
-    form.addEventListener("submit", (event) => {
-      event.preventDefault()
-      
-      submitButton.disabled = true
-      submitButton.innerText = "Opening WhatsApp..."
-      
+  if (form && successBanner && errorBanner && whatsappBtn && textBtn) {
+    const processCommunicationChannel = (mode) => {
+      // Trigger native browser validity verification highlights cleanly on mobile devices
+      if (!form.reportValidity()) {
+        return
+      }
+
+      whatsappBtn.disabled = true
+      textBtn.disabled = true
+
       const formData = new FormData(form)
       const data = {
         fullname: formData.get("fullname"),
@@ -172,27 +183,32 @@
       try {
         errorBanner.classList.add("hidden")
         successBanner.classList.remove("hidden")
-        
-        const whatsappTarget = "447562980333"
-        const textPayload = `New Trial Booking Request\n\nFull Name: ${data.fullname}\nPhone Number: ${data.phone}\nEmail Address: ${data.email}\nSelected Programme: ${data.programme}\nNotes: ${data.message || "None provided"}`
-        
-        const whatsappUrl = `https://wa.me/${whatsappTarget}?text=${encodeURIComponent(textPayload)}`
-        
-        form.reset()
         successBanner.scrollIntoView({ behavior: "smooth", block: "center" })
-        
-        // Changing to location.href prevents mobile Safari and Chrome from treating the app redirect as an untrusted popup
-        window.location.href = whatsappUrl
+
+        const rawNumber = "447562980333"
+        const plainTextBody = `New Trial Booking Request\n\nFull Name: ${data.fullname}\nPhone Number: ${data.phone}\nEmail Address: ${data.email}\nSelected Programme: ${data.programme}\nNotes: ${data.message || "None provided"}`
+
+        form.reset()
+
+        if (mode === "whatsapp") {
+          window.location.href = `https://wa.me/${rawNumber}?text=${encodeURIComponent(plainTextBody)}`
+        } else if (mode === "text") {
+          window.location.href = `sms:+${rawNumber}?body=${encodeURIComponent(plainTextBody)}`
+        }
       } catch (error) {
+        successBanner.classList.add("hidden")
         errorBanner.classList.remove("hidden")
         const errorMsgElement = document.getElementById("error-message")
         if (errorMsgElement) {
           errorMsgElement.innerText = "A transmission error occurred. Please try contacting Grant directly on 07562 980 333."
         }
       } finally {
-        submitButton.disabled = false
-        submitButton.innerText = "Send through WhatsApp or Text"
+        whatsappBtn.disabled = false
+        textBtn.disabled = false
       }
-    })
+    }
+
+    whatsappBtn.addEventListener("click", () => processCommunicationChannel("whatsapp"))
+    textBtn.addEventListener("click", () => processCommunicationChannel("text"))
   }
 </script>
