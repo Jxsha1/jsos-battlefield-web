@@ -19,7 +19,7 @@
           Submission Successful
         </h3>
         <p class="text-sm text-brandOffWhite">
-          Thank you for booking your trial. Our team will contact you within twenty-four hours to confirm your session.
+          Thank you for booking your trial. We are now redirecting you to WhatsApp to instantly connect with our team.
         </p>
       </div>
 
@@ -90,11 +90,11 @@
                 class="w-full bg-neutral-900 border border-brandGold/20 rounded px-4 py-3 text-brandOffWhite focus:outline-none focus:border-brandGold transition-colors duration-200 appearance-none cursor-pointer"
               >
                 <option value="" disabled selected class="text-neutral-600">Select a class...</option>
-                <option value="kids-beginners" class="bg-neutral-900">Kids Beginners (Ages 4 to 8)</option>
-                <option value="juniors" class="bg-neutral-900">Juniors (Ages 9 to 14)</option>
-                <option value="adult-beginners" class="bg-neutral-900">Adult Beginners Muay Thai</option>
-                <option value="ladies-only" class="bg-neutral-900">Ladies Muay Thai & Fitness</option>
-                <option value="fighters-sparring" class="bg-neutral-900">Fighter Training & Sparring</option>
+                <option value="Kids Beginners (Ages 4 to 8)" class="bg-neutral-900">Kids Beginners (Ages 4 to 8)</option>
+                <option value="Juniors (Ages 9 to 14)" class="bg-neutral-900">Juniors (Ages 9 to 14)</option>
+                <option value="Adult Beginners Muay Thai" class="bg-neutral-900">Adult Beginners Muay Thai</option>
+                <option value="Ladies Muay Thai & Fitness" class="bg-neutral-900">Ladies Muay Thai & Fitness</option>
+                <option value="Fighter Training & Sparring" class="bg-neutral-900">Fighter Training & Sparring</option>
               </select>
               <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-brandGold">
                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -128,7 +128,7 @@
               class="mt-1 accent-brandGold w-4 h-4 rounded border-brandGold/20 focus:outline-none focus:ring-1 focus:ring-brandGold"
             />
             <span class="text-xs text-brandGray leading-tight">
-              I agree to JS Office Solutions securely processing this enquiry under our privacy framework on behalf of Battlefield Muay Thai Gym. Sifu Grant and Dee will contact you using the provided number.
+              I agree to JS Office Solutions securely processing this enquiry under our privacy framework on behalf of Battlefield Muay Thai Gym. Sifu Grant and Gee will contact you using the provided number.
             </span>
           </label>
         </div>
@@ -170,18 +170,29 @@
       }
 
       try {
-        await new Promise((resolve) => setTimeout(resolve, 1500))
+        // Simulated local database logging interval
+        await new Promise((resolve) => setTimeout(resolve, 1000))
         
-        errorBanner.boxModel?.classList.add("hidden") || errorBanner.classList.add("hidden")
+        errorBanner.classList.add("hidden")
         successBanner.classList.remove("hidden")
-        form.reset()
         
+        // Format structured plain text block for the WhatsApp interface payload
+        const whatsappTarget = "447484728644"
+        const textPayload = `New Trial Booking Request\n\nFull Name: ${data.fullname}\nPhone Number: ${data.phone}\nEmail Address: ${data.email}\nSelected Programme: ${data.programme}\nNotes: ${data.message || "None provided"}`
+        
+        // Build the safe API request string and initiate automated tab transfer
+        const whatsappUrl = `https://wa.me/${whatsappTarget}?text=${encodeURIComponent(textPayload)}`
+        
+        form.reset()
         successBanner.scrollIntoView({ behavior: "smooth", block: "center" })
+        
+        // Open the native app endpoint context
+        window.open(whatsappUrl, "_blank")
       } catch (error) {
         errorBanner.classList.remove("hidden")
         const errorMsgElement = document.getElementById("error-message")
         if (errorMsgElement) {
-          errorMsgElement.innerText = "A transmission error occurred. Please try contacting Dee directly at 07484 728 644."
+          errorMsgElement.innerText = "A transmission error occurred. Please try contacting Gee directly at 07484 728 644."
         }
       } finally {
         submitButton.disabled = false
