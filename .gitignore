@@ -1,0 +1,21 @@
+# Build outputs and temporary caches
+dist/
+.astro/
+.cache/
+
+# Dependency directories
+node_modules/
+
+# Environment files containing sensitive API keys or local configurations
+.env
+.env.production
+.env.development
+.env.local
+.env.*.local
+
+# System files and local developer logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
