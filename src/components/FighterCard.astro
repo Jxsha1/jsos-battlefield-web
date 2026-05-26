@@ -1,20 +1,18 @@
 ---
-import { Image } from "astro:assets"
-
 interface Props {
   name: string
   title: string
   achievement: string
-  imageRemoteUrl: string
+  imageSrc: string
 }
 
-const { name, title, achievement, imageRemoteUrl } = Astro.props
+const { name, title, achievement, imageSrc } = Astro.props
 ---
 
 <div class="border border-brandGold/30 bg-black/60 rounded-lg overflow-hidden shadow-xl hover:border-brandGold transition-all duration-300 group">
   <div class="relative aspect-[3/4] bg-neutral-900 overflow-hidden">
     <img 
-      src={imageRemoteUrl} 
+      src={imageSrc} 
       alt={name}
       loading="lazy"
       decoding="async"
