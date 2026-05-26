@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro"
 import Header from "../components/Header.astro"
 import FighterCard from "../components/FighterCard.astro"
+import Timetable from "../components/Timetable.astro"
 import ContactForm from "../components/ContactForm.astro"
 ---
 
@@ -25,8 +26,8 @@ import ContactForm from "../components/ContactForm.astro"
         <a href="#contact" class="bg-brandGold text-brandBlack hover:bg-brandGoldDark font-sans font-bold px-8 py-3 rounded uppercase transition-all duration-200">
           Book Free Trial
         </a>
-        <a href="tel:07980775228" class="border border-brandGold text-brandGold hover:bg-brandGold hover:text-brandBlack font-sans font-bold px-8 py-3 rounded uppercase transition-all duration-200">
-          Call: 07980 775 228
+        <a href="#timetable" class="border border-brandGold text-brandGold hover:bg-brandGold hover:text-brandBlack font-sans font-bold px-8 py-3 rounded uppercase transition-all duration-200">
+          View Timetable
         </a>
       </div>
     </section>
@@ -55,6 +56,9 @@ import ContactForm from "../components/ContactForm.astro"
         />
       </div>
     </section>
+
+    <!-- Interactive Weekly Class Schedule Grid -->
+    <Timetable />
 
     <!-- Fully Functional Secure Contact and Registration Form -->
     <ContactForm />
