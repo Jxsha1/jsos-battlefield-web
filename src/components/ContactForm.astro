@@ -14,17 +14,15 @@
     </div>
 
     <div class="bg-black/40 border border-brandGold/30 p-8 rounded-lg shadow-2xl backdrop-blur-md">
-      <!-- Success State Banner (Hidden by default) -->
       <div id="form-success" class="hidden mb-6 p-4 bg-emerald-950/80 border border-emerald-500 rounded-lg text-center animate-fade-in">
         <h3 class="text-xl font-display font-bold text-emerald-400 uppercase mb-2">
           Submission Successful
         </h3>
         <p class="text-sm text-brandOffWhite">
-          Thank you for booking your trial. Our team will contact you within twenty four hours to confirm your session.
+          Thank you for booking your trial. Our team will contact you within twenty-four hours to confirm your session.
         </p>
       </div>
 
-      <!-- Error State Banner (Hidden by default) -->
       <div id="form-error" class="hidden mb-6 p-4 bg-red-950/80 border border-red-500 rounded-lg text-center animate-fade-in">
         <h3 class="text-xl font-display font-bold text-red-400 uppercase mb-2">
           An Error Occurred
@@ -36,7 +34,6 @@
 
       <form id="trial-enquiry-form" class="space-y-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Full Name Field -->
           <div>
             <label for="fullname" class="block text-xs font-display font-bold uppercase tracking-wider text-brandGold mb-2">
               Full Name
@@ -51,7 +48,6 @@
             />
           </div>
 
-          <!-- Phone Number Field -->
           <div>
             <label for="phone" class="block text-xs font-display font-bold uppercase tracking-wider text-brandGold mb-2">
               Phone Number
@@ -68,7 +64,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Email Address Field -->
           <div>
             <label for="email" class="block text-xs font-display font-bold uppercase tracking-wider text-brandGold mb-2">
               Email Address
@@ -83,15 +78,14 @@
             />
           </div>
 
-          <!-- Training Programme Selector -->
           <div>
-            <label for="program" class="block text-xs font-display font-bold uppercase tracking-wider text-brandGold mb-2">
-              Training Programme
+            <label for="programme" class="block text-xs font-display font-bold uppercase tracking-wider text-brandGold mb-2">
+               Training Programme
             </label>
             <div class="relative">
               <select 
-                id="program" 
-                name="program" 
+                id="programme" 
+                name="programme" 
                 required
                 class="w-full bg-neutral-900 border border-brandGold/20 rounded px-4 py-3 text-brandOffWhite focus:outline-none focus:border-brandGold transition-colors duration-200 appearance-none cursor-pointer"
               >
@@ -111,7 +105,6 @@
           </div>
         </div>
 
-        <!-- Message Field -->
         <div>
           <label for="message" class="block text-xs font-display font-bold uppercase tracking-wider text-brandGold mb-2">
             Additional Notes or Fitness Goals
@@ -125,7 +118,6 @@
           ></textarea>
         </div>
 
-        <!-- GDPR Consent Opt-In -->
         <div class="pt-2 border-t border-neutral-800">
           <label class="flex items-start gap-3 cursor-pointer select-none">
             <input 
@@ -141,7 +133,6 @@
           </label>
         </div>
 
-        <!-- Submit Button -->
         <div class="pt-2">
           <button 
             type="submit" 
@@ -157,7 +148,6 @@
 </section>
 
 <script>
-  // Dynamic client side form submission handling configured completely without semicolons
   const form = document.getElementById("trial-enquiry-form")
   const successBanner = document.getElementById("form-success")
   const errorBanner = document.getElementById("form-error")
@@ -167,7 +157,6 @@
     form.addEventListener("submit", async (event) => {
       event.preventDefault()
       
-      // Temporarily lock action buttons to prevent overlapping user inputs
       submitButton.disabled = true
       submitButton.innerText = "Processing Request..."
       
@@ -176,21 +165,17 @@
         fullname: formData.get("fullname"),
         phone: formData.get("phone"),
         email: formData.get("email"),
-        program: formData.get("program"),
+        programme: formData.get("programme"),
         message: formData.get("message")
       }
 
       try {
-        // Local workers integration placeholder
-        // In full production this targets our private Cloudflare static worker pipeline
         await new Promise((resolve) => setTimeout(resolve, 1500))
         
-        // Switch layouts smoothly
         errorBanner.classList.add("hidden")
         successBanner.classList.remove("hidden")
         form.reset()
         
-        // Force the viewport to highlight the success information container
         successBanner.scrollIntoView({ behavior: "smooth", block: "center" })
       } catch (error) {
         errorBanner.classList.remove("hidden")
