@@ -1,0 +1,95 @@
+---
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-brandGold/20 bg-brandBlack/90 backdrop-blur-md px-4 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <!-- Brand Logo Area -->
+    <a href="/" class="flex items-center gap-3 group focus:outline-none">
+      <!-- High contrast inline vector representing the elite BMTG Cobra shield -->
+      <svg class="w-10 h-10 text-brandGold group-hover:scale-105 transition-all duration-300" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M50 5 L90 25 L90 55 C90 75 50 95 50 95 C50 95 10 75 10 55 L10 25 Z" fill="black" stroke="#D4AF37" stroke-width="3"/>
+        <path d="M35 40 Q50 20 65 40 Q50 60 35 40 Z" fill="#D4AF37"/>
+        <path d="M50 45 L50 80" stroke="#D4AF37" stroke-width="4" stroke-linecap="round"/>
+        <path d="M40 70 L50 80 L60 70" stroke="#D4AF37" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="flex flex-col">
+        <span class="font-display font-extrabold text-base md:text-lg tracking-wider text-brandOffWhite uppercase leading-none">
+          Battlefield
+        </span>
+        <span class="font-sans font-bold text-xs tracking-widest text-brandGold uppercase leading-none mt-1">
+          Muay Thai Gym
+        </span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Menu -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="/" class="font-sans font-semibold text-sm uppercase tracking-wider text-brandOffWhite hover:text-brandGold transition-all duration-200">
+        Home
+      </a>
+      <a href="#timetable" class="font-sans font-semibold text-sm uppercase tracking-wider text-brandOffWhite hover:text-brandGold transition-all duration-200">
+        Timetable
+      </a>
+      <a href="#about" class="font-sans font-semibold text-sm uppercase tracking-wider text-brandOffWhite hover:text-brandGold transition-all duration-200">
+        About Us
+      </a>
+      <a href="#contact" class="font-sans font-semibold text-sm uppercase tracking-wider text-brandOffWhite hover:text-brandGold transition-all duration-200">
+        Contact
+      </a>
+    </nav>
+
+    <!-- Quick Action Contact Channel -->
+    <div class="hidden sm:block">
+      <a href="tel:07980775228" class="border border-brandGold text-brandGold hover:bg-brandGold hover:text-brandBlack font-sans font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded transition-all duration-200">
+        Book Free Trial
+      </a>
+    </div>
+
+    <!-- Mobile Navigation Toggle Button -->
+    <button id="menu-toggle" class="md:hidden text-brandOffWhite hover:text-brandGold focus:outline-none p-2" aria-label="Toggle Navigation Menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Menu Container -->
+  <div id="mobile-menu" class="hidden md:hidden w-full bg-brandBlack border-t border-brandGold/10 mt-4 py-4 px-2 space-y-4">
+    <a href="/" class="block font-sans font-semibold text-sm uppercase tracking-wider text-brandOffWhite hover:text-brandGold py-2 px-3 rounded transition-all duration-200">
+      Home
+    </a>
+    <a href="#timetable" class="block font-sans font-semibold text-sm uppercase tracking-wider text-brandOffWhite hover:text-brandGold py-2 px-3 rounded transition-all duration-200">
+      Timetable
+    </a>
+    <a href="#about" class="block font-sans font-semibold text-sm uppercase tracking-wider text-brandOffWhite hover:text-brandGold py-2 px-3 rounded transition-all duration-200">
+      About Us
+    </a>
+    <a href="#contact" class="block font-sans font-semibold text-sm uppercase tracking-wider text-brandOffWhite hover:text-brandGold py-2 px-3 rounded transition-all duration-200">
+      Contact
+    </a>
+    <a href="tel:07980775228" class="block text-center bg-brandGold text-brandBlack font-sans font-bold text-sm uppercase tracking-wider py-3 rounded transition-all duration-200">
+      Book Free Trial: 07980 775 228
+    </a>
+  </div>
+</header>
+
+<script>
+  // Mobile menu interactive logic written in clean, modern vanilla ES6 modules
+  const menuToggle = document.getElementById("menu-toggle")
+  const mobileMenu = document.getElementById("mobile-menu")
+  const menuIcon = document.getElementById("menu-icon")
+
+  if (menuToggle && mobileMenu && menuIcon) {
+    menuToggle.addEventListener("click", () => {
+      const isHidden = mobileMenu.classList.contains("hidden")
+      
+      if (isHidden) {
+        mobileMenu.classList.remove("hidden")
+        menuIcon.setAttribute("d", "M6 18L18 6M6 6l12 12")
+      } else {
+        mobileMenu.classList.add("hidden")
+        menuIcon.setAttribute("d", "M4 6h16M4 12h16M4 18h16")
+      }
+    })
+  }
+</script>
