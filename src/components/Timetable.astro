@@ -1,0 +1,227 @@
+---
+---
+
+<section id="timetable" class="w-full py-16 border-t border-brandGold/20 bg-brandBlack">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block mb-2">
+        Weekly Schedule
+      </span>
+      <h2 class="text-3xl md:text-4xl font-display font-extrabold text-brandOffWhite uppercase tracking-tight">
+        Class Timetable
+      </h2>
+      <div class="w-24 h-1 bg-brandGold mx-auto mt-4"></div>
+    </div>
+
+    <!-- Interactive Day Tab Switcher -->
+    <div class="flex flex-wrap justify-center gap-2 mb-8">
+      {["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].map((day, index) => (
+        <button
+          data-day-tab={day.toLowerCase()}
+          class={`px-5 py-3 rounded text-xs md:text-sm font-display font-bold uppercase tracking-wider transition-all duration-200 border ${
+            index === 0
+              ? "bg-brandGold text-brandBlack border-brandGold"
+              : "bg-neutral-900 text-brandOffWhite border-brandGold/20 hover:border-brandGold/50"
+          }`}
+        >
+          {day}
+        </button>
+      ))}
+    </div>
+
+    <!-- Schedule Cards Grid -->
+    <div class="relative bg-black/40 border border-brandGold/30 p-6 md:p-8 rounded-lg shadow-2xl backdrop-blur-md min-h-[350px]">
+      
+      <!-- Monday Schedule -->
+      <div data-day-content="monday" class="space-y-4 transition-opacity duration-300">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-neutral-900/80 border-l-4 border-brandGold rounded">
+            <div>
+              <span class="text-brandGold font-display font-bold text-xs tracking-wider uppercase block mb-1">Ages 4 to 8</span>
+              <h3 class="text-lg font-display font-extrabold text-brandOffWhite uppercase">Kids Beginners Muay Thai</h3>
+            </div>
+            <span class="mt-2 sm:mt-0 px-4 py-1.5 bg-brandBlack border border-brandGold/20 text-brandGold text-sm font-sans font-semibold rounded-full self-start sm:self-auto">
+              16:30 - 17:15
+            </span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-neutral-900/80 border-l-4 border-brandGold rounded">
+            <div>
+              <span class="text-brandGold font-display font-bold text-xs tracking-wider uppercase block mb-1">Ages 9 to 14</span>
+              <h3 class="text-lg font-display font-extrabold text-brandOffWhite uppercase">Juniors Muay Thai Class</h3>
+            </div>
+            <span class="mt-2 sm:mt-0 px-4 py-1.5 bg-brandBlack border border-brandGold/20 text-brandGold text-sm font-sans font-semibold rounded-full self-start sm:self-auto">
+              17:30 - 18:30
+            </span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-neutral-900/80 border-l-4 border-brandGold rounded">
+            <div>
+              <span class="text-brandGold font-display font-bold text-xs tracking-wider uppercase block mb-1">Ladies Only</span>
+              <h3 class="text-lg font-display font-extrabold text-brandOffWhite uppercase">Ladies Muay Thai & Fitness</h3>
+            </div>
+            <span class="mt-2 sm:mt-0 px-4 py-1.5 bg-brandBlack border border-brandGold/20 text-brandGold text-sm font-sans font-semibold rounded-full self-start sm:self-auto">
+              19:00 - 20:00
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tuesday Schedule -->
+      <div data-day-content="tuesday" class="hidden space-y-4 transition-opacity duration-300">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-neutral-900/80 border-l-4 border-brandGold rounded">
+            <div>
+              <span class="text-brandGold font-display font-bold text-xs tracking-wider uppercase block mb-1">Adults General</span>
+              <h3 class="text-lg font-display font-extrabold text-brandOffWhite uppercase">Adult Beginners Muay Thai</h3>
+            </div>
+            <span class="mt-2 sm:mt-0 px-4 py-1.5 bg-brandBlack border border-brandGold/20 text-brandGold text-sm font-sans font-semibold rounded-full self-start sm:self-auto">
+              19:00 - 20:00
+            </span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-neutral-900/80 border-l-4 border-brandGold rounded">
+            <div>
+              <span class="text-brandGold font-display font-bold text-xs tracking-wider uppercase block mb-1">Advanced</span>
+              <h3 class="text-lg font-display font-extrabold text-brandOffWhite uppercase">Fighter Training & Sparring</h3>
+            </div>
+            <span class="mt-2 sm:mt-0 px-4 py-1.5 bg-brandBlack border border-brandGold/20 text-brandGold text-sm font-sans font-semibold rounded-full self-start sm:self-auto">
+              20:00 - 21:30
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wednesday Schedule -->
+      <div data-day-content="wednesday" class="hidden space-y-4 transition-opacity duration-300">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-neutral-900/80 border-l-4 border-brandGold rounded">
+            <div>
+              <span class="text-brandGold font-display font-bold text-xs tracking-wider uppercase block mb-1">Ages 4 to 8</span>
+              <h3 class="text-lg font-display font-extrabold text-brandOffWhite uppercase">Kids Beginners Muay Thai</h3>
+            </div>
+            <span class="mt-2 sm:mt-0 px-4 py-1.5 bg-brandBlack border border-brandGold/20 text-brandGold text-sm font-sans font-semibold rounded-full self-start sm:self-auto">
+              16:30 - 17:15
+            </span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-neutral-900/80 border-l-4 border-brandGold rounded">
+            <div>
+              <span class="text-brandGold font-display font-bold text-xs tracking-wider uppercase block mb-1">Ages 9 to 14</span>
+              <h3 class="text-lg font-display font-extrabold text-brandOffWhite uppercase">Juniors Muay Thai Class</h3>
+            </div>
+            <span class="mt-2 sm:mt-0 px-4 py-1.5 bg-brandBlack border border-brandGold/20 text-brandGold text-sm font-sans font-semibold rounded-full self-start sm:self-auto">
+              17:30 - 18:30
+            </span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-neutral-900/80 border-l-4 border-brandGold rounded">
+            <div>
+              <span class="text-brandGold font-display font-bold text-xs tracking-wider uppercase block mb-1">Ladies Only</span>
+              <h3 class="text-lg font-display font-extrabold text-brandOffWhite uppercase">Ladies Muay Thai & Fitness</h3>
+            </div>
+            <span class="mt-2 sm:mt-0 px-4 py-1.5 bg-brandBlack border border-brandGold/20 text-brandGold text-sm font-sans font-semibold rounded-full self-start sm:self-auto">
+              19:00 - 20:00
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thursday Schedule -->
+      <div data-day-content="thursday" class="hidden space-y-4 transition-opacity duration-300">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-neutral-900/80 border-l-4 border-brandGold rounded">
+            <div>
+              <span class="text-brandGold font-display font-bold text-xs tracking-wider uppercase block mb-1">Adults General</span>
+              <h3 class="text-lg font-display font-extrabold text-brandOffWhite uppercase">Adult Beginners Muay Thai</h3>
+            </div>
+            <span class="mt-2 sm:mt-0 px-4 py-1.5 bg-brandBlack border border-brandGold/20 text-brandGold text-sm font-sans font-semibold rounded-full self-start sm:self-auto">
+              19:00 - 20:00
+            </span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-neutral-900/80 border-l-4 border-brandGold rounded">
+            <div>
+              <span class="text-brandGold font-display font-bold text-xs tracking-wider uppercase block mb-1">Advanced</span>
+              <h3 class="text-lg font-display font-extrabold text-brandOffWhite uppercase">Fighter Training & Sparring</h3>
+            </div>
+            <span class="mt-2 sm:mt-0 px-4 py-1.5 bg-brandBlack border border-brandGold/20 text-brandGold text-sm font-sans font-semibold rounded-full self-start sm:self-auto">
+              20:00 - 21:30
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Friday Schedule -->
+      <div data-day-content="friday" class="hidden space-y-4 transition-opacity duration-300">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-neutral-900/80 border-l-4 border-brandGold rounded">
+            <div>
+              <span class="text-brandGold font-display font-bold text-xs tracking-wider uppercase block mb-1">Ages 9 to 14</span>
+              <h3 class="text-lg font-display font-extrabold text-brandOffWhite uppercase">Juniors Sparring & Drills</h3>
+            </div>
+            <span class="mt-2 sm:mt-0 px-4 py-1.5 bg-brandBlack border border-brandGold/20 text-brandGold text-sm font-sans font-semibold rounded-full self-start sm:self-auto">
+              17:00 - 18:00
+            </span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-neutral-900/80 border-l-4 border-brandGold rounded">
+            <div>
+              <span class="text-brandGold font-display font-bold text-xs tracking-wider uppercase block mb-1">Advanced Match Prep</span>
+              <h3 class="text-lg font-display font-extrabold text-brandOffWhite uppercase">Fighter Conditioning & Pads</h3>
+            </div>
+            <span class="mt-2 sm:mt-0 px-4 py-1.5 bg-brandBlack border border-brandGold/20 text-brandGold text-sm font-sans font-semibold rounded-full self-start sm:self-auto">
+              18:30 - 20:00
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Saturday Schedule -->
+      <div data-day-content="saturday" class="hidden space-y-4 transition-opacity duration-300">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-neutral-900/80 border-l-4 border-brandGold rounded col-span-1 md:col-span-2">
+            <div>
+              <span class="text-brandGold font-display font-bold text-xs tracking-wider uppercase block mb-1">Open Sparring</span>
+              <h3 class="text-lg font-display font-extrabold text-brandOffWhite uppercase">Saturday Open Mat & Technical Drills</h3>
+            </div>
+            <span class="mt-2 sm:mt-0 px-4 py-1.5 bg-brandBlack border border-brandGold/20 text-brandGold text-sm font-sans font-semibold rounded-full self-start sm:self-auto">
+              10:00 - 11:30
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Modern client side tab switching logic written completely without semicolons
+  const dayTabs = document.querySelectorAll("[data-day-tab]")
+  const dayContents = document.querySelectorAll("[data-day-content]")
+
+  dayTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const selectedDay = tab.getAttribute("data-day-tab")
+
+      // Update button styles to reflect active choice
+      dayTabs.forEach((btn) => {
+        btn.classList.remove("bg-brandGold", "text-brandBlack", "border-brandGold")
+        btn.classList.add("bg-neutral-900", "text-brandOffWhite", "border-brandGold/20")
+      })
+      tab.classList.remove("bg-neutral-900", "text-brandOffWhite", "border-brandGold/20")
+      tab.classList.add("bg-brandGold", "text-brandBlack", "border-brandGold")
+
+      // Toggle display block visibility matching the active day
+      dayContents.forEach((content) => {
+        const contentDay = content.getAttribute("data-day-content")
+        if (contentDay === selectedDay) {
+          content.classList.remove("hidden")
+        } else {
+          content.classList.add("hidden")
+        }
+      })
+    })
+  })
+</script>
