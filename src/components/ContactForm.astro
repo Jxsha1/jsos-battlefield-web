@@ -57,7 +57,7 @@
               id="phone" 
               name="phone" 
               required 
-              placeholder="e.g. 07980 775 228"
+              placeholder="e.g. 07484 728 644"
               class="w-full bg-neutral-900 border border-brandGold/20 rounded px-4 py-3 text-brandOffWhite placeholder-neutral-600 focus:outline-none focus:border-brandGold transition-colors duration-200"
             />
           </div>
@@ -172,7 +172,7 @@
       try {
         await new Promise((resolve) => setTimeout(resolve, 1500))
         
-        errorBanner.classList.add("hidden")
+        errorBanner.boxModel?.classList.add("hidden") || errorBanner.classList.add("hidden")
         successBanner.classList.remove("hidden")
         form.reset()
         
@@ -181,7 +181,7 @@
         errorBanner.classList.remove("hidden")
         const errorMsgElement = document.getElementById("error-message")
         if (errorMsgElement) {
-          errorMsgElement.innerText = "A transmission error occurred. Please try contacting Dee directly at 07980 775 228."
+          errorMsgElement.innerText = "A transmission error occurred. Please try contacting Dee directly at 07484 728 644."
         }
       } finally {
         submitButton.disabled = false
