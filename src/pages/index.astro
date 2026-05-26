@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro"
 import Header from "../components/Header.astro"
 import FighterCard from "../components/FighterCard.astro"
+import ContactForm from "../components/ContactForm.astro"
 ---
 
 <Layout title="Home of the Warriors">
@@ -21,8 +22,11 @@ import FighterCard from "../components/FighterCard.astro"
         Learn professional martial arts and elite physical conditioning under world-class coaches.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="tel:07980775228" class="bg-brandGold text-brandBlack hover:bg-brandGoldDark font-sans font-bold px-8 py-3 rounded uppercase transition-all duration-200">
-          Enquire: 07980 775 228
+        <a href="#contact" class="bg-brandGold text-brandBlack hover:bg-brandGoldDark font-sans font-bold px-8 py-3 rounded uppercase transition-all duration-200">
+          Book Free Trial
+        </a>
+        <a href="tel:07980775228" class="border border-brandGold text-brandGold hover:bg-brandGold hover:text-brandBlack font-sans font-bold px-8 py-3 rounded uppercase transition-all duration-200">
+          Call: 07980 775 228
         </a>
       </div>
     </section>
@@ -51,5 +55,8 @@ import FighterCard from "../components/FighterCard.astro"
         />
       </div>
     </section>
+
+    <!-- Fully Functional Secure Contact and Registration Form -->
+    <ContactForm />
   </main>
 </Layout>
