@@ -24,6 +24,15 @@ import sponsor2 from "../assets/sponsors/image_64.jpg"
 import sponsor3 from "../assets/sponsors/image_65.jpg"
 import sponsor4 from "../assets/sponsors/image_66.png"
 import sponsor5 from "../assets/sponsors/image_67.jpg"
+
+// Precise Bio Data Sets
+const grantBio = "Grant brings forty-five years of elite dedication to martial arts. Trained by the absolute best, he was awarded the title of Sifu in 1998 in Hong Kong for Chow Gar Southern Praying Mantis Kung Fu under Master Paul Whitrod and Grandmaster Ip Chee Keung. He later earned the title of Kru in Thailand in 2004 for Krabi Krabong and Kad Chuia string boxing under Ajarn Pramote Mesamana and Colonel Nattapong Buayam. Certified as a Sitnarong Worldwide Instructor under Master Sken in 2008 for Thai boxing ring sports, Grant was inducted into the Martial Arts Hall of Fame for a Lifetime Achievement award in 2014 at just forty-one years of age. He has also been a vital part of the England Thai Boxing Coaching Team for IFMA, ISKA and more recently the WBC England Amateur Team."
+
+const deeBio = "Dee has coached on the ISKA England Thai Boxing Team and has more recently been part of the WBC English Thai Boxing Coaching Team on three separate occasions. Becoming an instructor in 2013 and having been married to Grant for over twenty-two years, she has developed an exceptional eye and wealth of experience that all the kids get remarkable benefit from. Her friendly but productive character is adored by everyone at the gym."
+
+const chloeBio = "Chloe is normally based and teaching clients within elite conditioning facilities in Dubai, UAE. Her competitive history is decorated with top-tier international titles, including a silver medal at the King's Royal World Cup World Championships in Thailand in 2015. She is also a two-time WKU UK Champion title holder, a Celtic Champion, and a Sandee British Open Thai Boxing Champion."
+
+const lucieBio = "Lucie balances coaching across adult, junior, and kids lines as an assistant trainer and trainee instructor. She is a historic gold medallist and World Champion at the WBC World Festival at Lumpinee Stadium in Thailand, and a gold medallist and World Champion at the WBC World Festival in Venice, Italy in 2023. Her international record also includes a silver medal at the WBC World Youth Games in Calgary, Canada, a double silver medal in Thai Boxing and K1 at the 2019 ISKA World Championship in Ireland, a Junior British Open Sandee Champion, and a two-time WKU British Open Thai Boxing Champion."
 ---
 
 <Layout title="Home of the Warriors">
@@ -66,16 +75,25 @@ import sponsor5 from "../assets/sponsors/image_67.jpg"
           
           <div class="min-w-full sm:min-w-[50%] lg:min-w-[33.333%] flex flex-col justify-between snap-start border border-brandGold/20 bg-black/40 rounded-lg overflow-hidden group">
             <div class="relative aspect-[3/4] bg-neutral-900 overflow-hidden flex-shrink-0">
-              <img src={grantImg.src} alt="Sifu Grant Guirey" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" loading="lazy" />
+              <img src={grantImg.src} alt="Grant Guirey" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-brandBlack via-transparent to-transparent"></div>
             </div>
             <div class="p-6 flex-grow flex flex-col justify-between">
-              <div>
-                <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block mb-1">Chief Instructor</span>
-                <h3 class="text-xl font-display font-extrabold text-brandOffWhite uppercase mb-3">Sifu Grant Guirey</h3>
-                <p class="text-sm text-brandGray font-sans leading-relaxed">
-                  Grant brings forty-five years of elite dedication to martial arts. Awarded the title of Sifu in 1998 in Hong Kong for Southern Praying Mantis under Master Paul Whitrod and Grandmaster Ip Chee Keung, he later earned the title of Kru in Thailand in 2004 for Krabi Krabong under Ajarn Pramote Mesamana. Certified as a Sitnarong Worldwide Instructor under Master Sken in 2008, Grant was inducted into the Martial Arts Hall of Fame for Lifetime Achievement in 2014 and coaches the England Thai Boxing squad lines.
+              <div class="space-y-2">
+                <h3 class="text-xl font-display font-extrabold text-brandOffWhite uppercase">Grant Guirey</h3>
+                <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block">Chief Instructor</span>
+                <p class="text-sm text-brandGray font-sans leading-relaxed line-clamp-2 mb-4">
+                  {grantBio}
                 </p>
+                <button 
+                  class="show-more-btn text-xs font-display font-bold uppercase tracking-wider text-brandGold hover:text-brandOffWhite transition-colors duration-200 flex items-center gap-1 focus:outline-none"
+                  data-name="Grant Guirey"
+                  data-title="Chief Instructor"
+                  data-bio={grantBio}
+                  data-img={grantImg.src}
+                >
+                  Show More Option →
+                </button>
               </div>
             </div>
           </div>
@@ -86,12 +104,21 @@ import sponsor5 from "../assets/sponsors/image_67.jpg"
               <div class="absolute inset-0 bg-gradient-to-t from-brandBlack via-transparent to-transparent"></div>
             </div>
             <div class="p-6 flex-grow flex flex-col justify-between">
-              <div>
-                <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block mb-1">Adult, Juniors & Kids Instructor</span>
-                <h3 class="text-xl font-display font-extrabold text-brandOffWhite uppercase mb-3">Dee Guirey</h3>
-                <p class="text-sm text-brandGray font-sans leading-relaxed">
-                  Dee qualified as an instructor in 2013 and has coached on the ISKA England team alongside three appointments to the WBC English Thai Boxing coaching staff. Having run training sessions next to Grant for over twenty-two years of marriage, she has developed an exceptional eye for student progression. Her friendly, encouraging and highly productive character ensures that junior members especially gain immense technical benefits.
+              <div class="space-y-2">
+                <h3 class="text-xl font-display font-extrabold text-brandOffWhite uppercase">Dee Guirey</h3>
+                <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block">Instructor</span>
+                <p class="text-sm text-brandGray font-sans leading-relaxed line-clamp-2 mb-4">
+                  {deeBio}
                 </p>
+                <button 
+                  class="show-more-btn text-xs font-display font-bold uppercase tracking-wider text-brandGold hover:text-brandOffWhite transition-colors duration-200 flex items-center gap-1 focus:outline-none"
+                  data-name="Dee Guirey"
+                  data-title="Instructor"
+                  data-bio={deeBio}
+                  data-img={deeImg.src}
+                >
+                  Show More Option →
+                </button>
               </div>
             </div>
           </div>
@@ -102,12 +129,21 @@ import sponsor5 from "../assets/sponsors/image_67.jpg"
               <div class="absolute inset-0 bg-gradient-to-t from-brandBlack via-transparent to-transparent"></div>
             </div>
             <div class="p-6 flex-grow flex flex-col justify-between">
-              <div>
-                <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block mb-1">International Adult Instructor & Juniors Assistant</span>
-                <h3 class="text-xl font-display font-extrabold text-brandOffWhite uppercase mb-3">Chloe Guirey</h3>
-                <p class="text-sm text-brandGray font-sans leading-relaxed">
-                  Chloe serves as our international athletic lead, normally based and teaching clients within elite conditioning facilities in Dubai, UAE. Her competitive history is decorated with top-tier titles, including a silver medal at the King's Royal World Cup World Championships in Thailand in 2015. She is also a two-time WKU UK Champion title holder, a Celtic Champion, and a Sandee British Open Thai Boxing Champion.
+              <div class="space-y-2">
+                <h3 class="text-xl font-display font-extrabold text-brandOffWhite uppercase">Chloe Guirey</h3>
+                <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block">International Instructor</span>
+                <p class="text-sm text-brandGray font-sans leading-relaxed line-clamp-2 mb-4">
+                  {chloeBio}
                 </p>
+                <button 
+                  class="show-more-btn text-xs font-display font-bold uppercase tracking-wider text-brandGold hover:text-brandOffWhite transition-colors duration-200 flex items-center gap-1 focus:outline-none"
+                  data-name="Chloe Guirey"
+                  data-title="International Instructor"
+                  data-bio={chloeBio}
+                  data-img={chloeImg.src}
+                >
+                  Show More Option →
+                </button>
               </div>
             </div>
           </div>
@@ -118,12 +154,21 @@ import sponsor5 from "../assets/sponsors/image_67.jpg"
               <div class="absolute inset-0 bg-gradient-to-t from-brandBlack via-transparent to-transparent"></div>
             </div>
             <div class="p-6 flex-grow flex flex-col justify-between">
-              <div>
-                <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block mb-1">Assistant Trainer & Trainee Instructor</span>
-                <h3 class="text-xl font-display font-extrabold text-brandOffWhite uppercase mb-3">Lucie Guirey</h3>
-                <p class="text-sm text-brandGray font-sans leading-relaxed">
-                  Lucie balances coaching across adult, junior, and kids lines with an active world-class fighting career. She is a historic gold medallist and World Champion at both the WBC World Festival at Lumpinee Stadium in Thailand and Venice in 2023. Her international record includes a silver medal at the WBC World Youth Games in Calgary, double silver in Thai Boxing and K1 at the ISKA World Championships, and two WKU British Open titles.
+              <div class="space-y-2">
+                <h3 class="text-xl font-display font-extrabold text-brandOffWhite uppercase">Lucie Guirey</h3>
+                <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block">Assistant Instructor</span>
+                <p class="text-sm text-brandGray font-sans leading-relaxed line-clamp-2 mb-4">
+                  {lucieBio}
                 </p>
+                <button 
+                  class="show-more-btn text-xs font-display font-bold uppercase tracking-wider text-brandGold hover:text-brandOffWhite transition-colors duration-200 flex items-center gap-1 focus:outline-none"
+                  data-name="Lucie Guirey"
+                  data-title="Assistant Instructor"
+                  data-bio={lucieBio}
+                  data-img={lucieImg.src}
+                >
+                  Show More Option →
+                </button>
               </div>
             </div>
           </div>
@@ -138,6 +183,23 @@ import sponsor5 from "../assets/sponsors/image_67.jpg"
         </button>
       </div>
     </section>
+
+    <div id="bio-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-all duration-300">
+      <div class="bg-neutral-900 border border-brandGold/30 max-w-2xl w-full rounded-lg overflow-hidden shadow-2xl relative flex flex-col md:flex-row animate-fade-in animate-duration-200">
+        <button id="modal-close" class="absolute top-4 right-4 text-brandGray hover:text-brandGold text-xl font-sans focus:outline-none z-20 w-8 h-8 flex items-center justify-center bg-black/50 rounded-full border border-neutral-800" aria-label="Close Profile Modal">
+          ✕
+        </button>
+        <div class="w-full md:w-2/5 aspect-[3/4] bg-neutral-950 relative">
+          <img id="modal-img" src="" alt="" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent md:hidden"></div>
+        </div>
+        <div class="w-full md:w-3/5 p-6 md:p-8 flex flex-col justify-center bg-neutral-900">
+          <h3 id="modal-name" class="text-2xl font-display font-extrabold text-brandOffWhite uppercase mb-1"></h3>
+          <span id="modal-title" class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block mb-4"></span>
+          <p id="modal-bio" class="text-sm text-brandGray font-sans leading-relaxed max-h-60 overflow-y-auto pr-2 custom-scrollbar"></p>
+        </div>
+      </div>
+    </div>
 
     <section class="mb-16 pt-8 border-t border-brandGold/20">
       <div class="text-center mb-10">
@@ -295,6 +357,7 @@ import sponsor5 from "../assets/sponsors/image_67.jpg"
 </Layout>
 
 <script>
+  // Carousel Navigation Logic
   const carousel = document.getElementById("instructor-carousel")
   const prevBtn = document.getElementById("prev-slide")
   const nextBtn = document.getElementById("next-slide")
@@ -308,6 +371,47 @@ import sponsor5 from "../assets/sponsors/image_67.jpg"
     nextBtn.addEventListener("click", () => {
       const cardWidth = carousel.firstElementChild ? (carousel.firstElementChild as HTMLElement).offsetWidth + 24 : 300
       carousel.scrollBy({ left: cardWidth, behavior: "smooth" })
+    })
+  }
+
+  // Interactive Profile Modal Logic
+  const modal = document.getElementById("bio-modal")
+  const modalImg = document.getElementById("modal-img") as HTMLImageElement
+  const modalName = document.getElementById("modal-name")
+  const modalTitle = document.getElementById("modal-title")
+  const modalBio = document.getElementById("modal-bio")
+  const modalClose = document.getElementById("modal-close")
+  const showMoreButtons = document.querySelectorAll(".show-more-btn")
+
+  if (modal && modalImg && modalName && modalTitle && modalBio && modalClose) {
+    showMoreButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const name = button.getAttribute("data-name") || ""
+        const title = button.getAttribute("data-title") || ""
+        const bio = button.getAttribute("data-bio") || ""
+        const img = button.getAttribute("data-img") || ""
+
+        modalImg.src = img
+        modalImg.alt = name
+        modalName.innerText = name
+        modalTitle.innerText = title
+        modalBio.innerText = bio
+
+        modal.classList.remove("hidden")
+        document.body.classList.add("overflow-hidden")
+      })
+    })
+
+    const closeModal = () => {
+      modal.classList.add("hidden")
+      document.body.classList.remove("overflow-hidden")
+    }
+
+    modalClose.addEventListener("click", closeModal)
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeModal()
+      }
     })
   }
 </script>
