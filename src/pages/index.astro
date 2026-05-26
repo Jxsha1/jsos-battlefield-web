@@ -4,14 +4,28 @@ import Header from "../components/Header.astro"
 import FighterCard from "../components/FighterCard.astro"
 import Timetable from "../components/Timetable.astro"
 import ContactForm from "../components/ContactForm.astro"
+
+import lucieImg from "../assets/fighters/image_11.png"
+import chloeImg from "../assets/fighters/image_12.png"
+
+import gallery1 from "../assets/gallery/image_16.jpg"
+import gallery2 from "../assets/gallery/image_31.jpg"
+import gallery3 from "../assets/gallery/image_20.jpg"
+import gallery4 from "../assets/gallery/image_68.png"
+import gallery5 from "../assets/gallery/image_24.jpg"
+import gallery6 from "../assets/gallery/image_76.png"
+
+import sponsor1 from "../assets/sponsors/image_35.png"
+import sponsor2 from "../assets/sponsors/image_64.jpg"
+import sponsor3 from "../assets/sponsors/image_65.jpg"
+import sponsor4 from "../assets/sponsors/image_66.png"
+import sponsor5 from "../assets/sponsors/image_67.jpg"
 ---
 
 <Layout title="Home of the Warriors">
-  <!-- Brand New Responsive Navigation Header -->
   <Header />
 
   <main class="flex-grow w-full max-w-7xl mx-auto px-4 py-16">
-    <!-- Hero Banner Section -->
     <section class="text-center mb-16 py-12 border-b border-brandGold/20">
       <span class="text-brandGold font-display font-bold text-sm tracking-widest uppercase block mb-2">
         Hornchurch Essex
@@ -32,7 +46,6 @@ import ContactForm from "../components/ContactForm.astro"
       </div>
     </section>
 
-    <!-- Champions Showcase Grid -->
     <section class="mb-16">
       <div class="text-center mb-10">
         <h2 class="text-3xl font-display font-extrabold text-brandOffWhite uppercase tracking-tight">
@@ -46,26 +59,40 @@ import ContactForm from "../components/ContactForm.astro"
           name="Lucie Guirey"
           title="World Champion"
           achievement="Elite standard competitor representing BMTG on global professional fight cards."
-          imageRemoteUrl="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600&auto=format&fit=crop"
+          imageSrc={lucieImg.src}
         />
         <FighterCard 
           name="Chloe Guirey"
           title="Champion Instructor"
-          achievement="Certified technical martial arts coach specializing in fighter development paths."
-          imageRemoteUrl="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=600&auto=format&fit=crop"
+          achievement="Certified technical martial arts coach specialising in fighter development paths."
+          imageSrc={chloeImg.src}
         />
       </div>
     </section>
 
-    <!-- Interactive Weekly Class Schedule Grid -->
+    <section class="mb-16 pt-8 border-t border-brandGold/20">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-display font-extrabold text-brandOffWhite uppercase tracking-tight">
+          Inside The Facility
+        </h2>
+        <div class="w-24 h-1 bg-brandGold mx-auto mt-4"></div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+        <img src={gallery1.src} alt="Adult Muay Thai Training" class="w-full h-48 md:h-64 object-cover rounded border border-brandGold/20 hover:border-brandGold transition-colors duration-300" loading="lazy" />
+        <img src={gallery2.src} alt="Ladies Programme" class="w-full h-48 md:h-64 object-cover rounded border border-brandGold/20 hover:border-brandGold transition-colors duration-300" loading="lazy" />
+        <img src={gallery3.src} alt="Kids Martial Arts" class="w-full h-48 md:h-64 object-cover rounded border border-brandGold/20 hover:border-brandGold transition-colors duration-300" loading="lazy" />
+        <img src={gallery4.src} alt="Gym Facility Equipment" class="w-full h-48 md:h-64 object-cover rounded border border-brandGold/20 hover:border-brandGold transition-colors duration-300" loading="lazy" />
+        <img src={gallery5.src} alt="Advanced Conditioning" class="w-full h-48 md:h-64 object-cover rounded border border-brandGold/20 hover:border-brandGold transition-colors duration-300" loading="lazy" />
+        <img src={gallery6.src} alt="Juniors Technique Drills" class="w-full h-48 md:h-64 object-cover rounded border border-brandGold/20 hover:border-brandGold transition-colors duration-300" loading="lazy" />
+      </div>
+    </section>
+
     <Timetable />
 
-    <!-- Location and Directions Section -->
     <section id="location" class="w-full py-16 border-t border-brandGold/20 bg-neutral-950">
       <div class="max-w-6xl mx-auto px-4">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
-          <!-- Directions and Info Block -->
           <div class="space-y-6">
             <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block">
               Find the Gym
@@ -79,11 +106,9 @@ import ContactForm from "../components/ContactForm.astro"
               Battlefield Muay Thai Gym is located in the heart of Hornchurch. Our elite training facility features a full-sized boxing ring, professional heavy bag stations, and comprehensive technical equipment.
             </p>
             
-            <!-- Address Card -->
             <div class="bg-brandBlack border border-brandGold/20 p-6 rounded-lg space-y-4">
               <div class="flex items-start gap-4">
                 <div class="text-brandGold mt-1">
-                  <!-- Pin icon SVG -->
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -97,10 +122,8 @@ import ContactForm from "../components/ContactForm.astro"
                 </div>
               </div>
               
-              <!-- Vital Entrance Notice (Extracted from image_15.png) -->
               <div class="flex items-start gap-4 border-t border-brandGold/10 pt-4">
                 <div class="text-brandGold mt-1">
-                  <!-- Alert icon SVG -->
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
                   </svg>
@@ -114,7 +137,6 @@ import ContactForm from "../components/ContactForm.astro"
               </div>
             </div>
             
-            <!-- Quick Link Navigation Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 pt-2">
               <a 
                 href="https://www.google.com/maps/dir/?api=1&destination=51.562141,0.205735" 
@@ -133,21 +155,15 @@ import ContactForm from "../components/ContactForm.astro"
             </div>
           </div>
           
-          <!-- Stylised Premium Static Map Placeholder Container -->
           <div class="relative w-full aspect-square md:aspect-[4/3] lg:aspect-square bg-neutral-900 border border-brandGold/30 rounded-lg overflow-hidden group shadow-2xl">
-            <!-- Simulated Premium Dark Blueprint Map Backdrop -->
             <div class="absolute inset-0 opacity-40 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px] bg-brandBlack"></div>
             
-            <!-- Simulated Street Outlines inside map container -->
             <svg class="absolute inset-0 w-full h-full text-brandGold/10" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M -100,200 L 800,200" />
               <path d="M -100,450 L 800,450" />
               <path d="M 300,-100 L 300,800" />
-              <path d="M 500,-100 L 500,800" stroke-width="3" class="text-brandGold/20" /> <!-- Hornchurch Road representation -->
-              <path d="M 300,450 Q 380,380 500,380" stroke-width="2" class="text-brandGold/20" /> <!-- Vicarage Road representation -->
-            </svg>
+              <path d="M 500,-100 L 500,800" stroke-width="3" class="text-brandGold/20" /> <path d="M 300,450 Q 380,380 500,380" stroke-width="2" class="text-brandGold/20" /> </svg>
             
-            <!-- Map Label Text Layouts -->
             <div class="absolute top-[34%] right-[4%] bg-black/80 border border-brandGold/20 px-3 py-1.5 rounded text-[10px] tracking-widest font-display font-bold uppercase text-brandGold">
               Hornchurch Road (A124)
             </div>
@@ -155,12 +171,10 @@ import ContactForm from "../components/ContactForm.astro"
               Vicarage Road
             </div>
             
-            <!-- Pulsating Locator Ring representation -->
             <div class="absolute top-[48%] left-[48%] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
               <span class="absolute inline-flex h-16 w-16 rounded-full bg-brandGold/20 animate-ping opacity-75"></span>
               <span class="absolute inline-flex h-8 w-8 rounded-full bg-brandGold/40 animate-pulse"></span>
               
-              <!-- Interactive Shield Icon Mark representing the gym -->
               <div class="relative bg-brandBlack border-2 border-brandGold p-3 rounded-full shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <svg class="w-8 h-8 text-brandGold" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M50 5 L90 25 L90 55 C90 75 50 95 50 95 C50 95 10 75 10 55 L10 25 Z" fill="black" stroke="#D4AF37" stroke-width="4"/>
@@ -169,7 +183,6 @@ import ContactForm from "../components/ContactForm.astro"
               </div>
             </div>
             
-            <!-- Exact Coordinates Badge -->
             <div class="absolute bottom-4 right-4 bg-brandBlack/90 border border-brandGold/20 px-4 py-2 rounded text-[11px] font-sans text-brandGray">
               GPS: <span class="text-brandOffWhite font-semibold">51.5621° N, 0.2057° E</span>
             </div>
@@ -179,7 +192,24 @@ import ContactForm from "../components/ContactForm.astro"
       </div>
     </section>
 
-    <!-- Fully Functional Secure Contact and Registration Form -->
+    <section class="w-full py-12 border-t border-brandGold/20 bg-brandBlack">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-10">
+          <h2 class="text-2xl font-display font-extrabold text-brandOffWhite uppercase tracking-tight">
+            Proudly Supported By
+          </h2>
+          <div class="w-16 h-1 bg-brandGold mx-auto mt-4"></div>
+        </div>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 max-w-4xl mx-auto opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+          <img src={sponsor1.src} alt="Delaney's" class="h-12 md:h-16 object-contain" loading="lazy" />
+          <img src={sponsor2.src} alt="Hamton Environmental Services" class="h-12 md:h-16 object-contain" loading="lazy" />
+          <img src={sponsor3.src} alt="Roof Care Company" class="h-12 md:h-16 object-contain" loading="lazy" />
+          <img src={sponsor4.src} alt="MJ Bushell Chartered Accountants" class="h-12 md:h-16 object-contain" loading="lazy" />
+          <img src={sponsor5.src} alt="A3E Local Partner" class="h-12 md:h-16 object-contain" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
     <ContactForm />
   </main>
 </Layout>
