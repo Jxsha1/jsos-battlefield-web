@@ -1,13 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Header from "../components/Header.astro"
-import FighterCard from "../components/FighterCard.astro"
 import Timetable from "../components/Timetable.astro"
 import ContactForm from "../components/ContactForm.astro"
 
+// Instructor Carousel Imports
+import grantImg from "../assets/fighters/image_72.jpg"
+import deeImg from "../assets/fighters/image_73.jpg"
 import lucieImg from "../assets/fighters/image_11.png"
 import chloeImg from "../assets/fighters/image_12.png"
 
+// Gallery Previews
 import gallery1 from "../assets/gallery/image_16.jpg"
 import gallery2 from "../assets/gallery/image_31.jpg"
 import gallery3 from "../assets/gallery/image_20.jpg"
@@ -15,6 +18,7 @@ import gallery4 from "../assets/gallery/image_68.png"
 import gallery5 from "../assets/gallery/image_24.jpg"
 import gallery6 from "../assets/gallery/image_76.png"
 
+// Sponsors Grid
 import sponsor1 from "../assets/sponsors/image_35.png"
 import sponsor2 from "../assets/sponsors/image_64.jpg"
 import sponsor3 from "../assets/sponsors/image_65.jpg"
@@ -46,27 +50,76 @@ import sponsor5 from "../assets/sponsors/image_67.jpg"
       </div>
     </section>
 
-    <section class="mb-16">
+    <section class="mb-20 relative px-4">
       <div class="text-center mb-10">
+        <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block mb-2">
+          Expert Leadership
+        </span>
         <h2 class="text-3xl font-display font-extrabold text-brandOffWhite uppercase tracking-tight">
-          Our World Class Champions
+          Our Instructors
         </h2>
         <div class="w-24 h-1 bg-brandGold mx-auto mt-4"></div>
       </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <FighterCard 
-          name="Lucie Guirey"
-          title="World Champion"
-          achievement="Elite standard competitor representing BMTG on global professional fight cards."
-          imageSrc={lucieImg.src}
-        />
-        <FighterCard 
-          name="Chloe Guirey"
-          title="Champion Instructor"
-          achievement="Certified technical martial arts coach specialising in fighter development paths."
-          imageSrc={chloeImg.src}
-        />
+
+      <div class="relative max-w-5xl mx-auto">
+        <div id="instructor-carousel" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 carousel-container">
+          
+          <div class="min-w-full sm:min-w-[50%] md:min-w-[33.333%] snap-start border border-brandGold/20 bg-black/40 rounded-lg overflow-hidden group">
+            <div class="relative aspect-[3/4] bg-neutral-900 overflow-hidden">
+              <img src={grantImg.src} alt="Sifu Grant Guirey" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brandBlack via-transparent to-transparent"></div>
+            </div>
+            <div class="p-6">
+              <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block mb-1">Chief Instructor</span>
+              <h3 class="text-xl font-display font-extrabold text-brandOffWhite uppercase mb-2">Sifu Grant Guirey</h3>
+              <p class="text-sm text-brandGray font-sans">Founder and technical mastermind behind the BMTG competitive curriculum.</p>
+            </div>
+          </div>
+
+          <div class="min-w-full sm:min-w-[50%] md:min-w-[33.333%] snap-start border border-brandGold/20 bg-black/40 rounded-lg overflow-hidden group">
+            <div class="relative aspect-[3/4] bg-neutral-900 overflow-hidden">
+              <img src={deeImg.src} alt="Dee Guirey" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brandBlack via-transparent to-transparent"></div>
+            </div>
+            <div class="p-6">
+              <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block mb-1">Instructor & Coordinator</span>
+              <h3 class="text-xl font-display font-extrabold text-brandOffWhite uppercase mb-2">Dee Guirey</h3>
+              <p class="text-sm text-brandGray font-sans">Leads community outreach programmes, gym membership tracks, and junior class schedules.</p>
+            </div>
+          </div>
+
+          <div class="min-w-full sm:min-w-[50%] md:min-w-[33.333%] snap-start border border-brandGold/20 bg-black/40 rounded-lg overflow-hidden group">
+            <div class="relative aspect-[3/4] bg-neutral-900 overflow-hidden">
+              <img src={lucieImg.src} alt="Lucie Guirey" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brandBlack via-transparent to-transparent"></div>
+            </div>
+            <div class="p-6">
+              <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block mb-1">Elite Team Coach</span>
+              <h3 class="text-xl font-display font-extrabold text-brandOffWhite uppercase mb-2">Lucie Guirey</h3>
+              <p class="text-sm text-brandGray font-sans">Active world class champion delivering professional performance and sparring insight.</p>
+            </div>
+          </div>
+
+          <div class="min-w-full sm:min-w-[50%] md:min-w-[33.333%] snap-start border border-brandGold/20 bg-black/40 rounded-lg overflow-hidden group">
+            <div class="relative aspect-[3/4] bg-neutral-900 overflow-hidden">
+              <img src={chloeImg.src} alt="Chloe Guirey" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brandBlack via-transparent to-transparent"></div>
+            </div>
+            <div class="p-6">
+              <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block mb-1">Technical Instructor</span>
+              <h3 class="text-xl font-display font-extrabold text-brandOffWhite uppercase mb-2">Chloe Guirey</h3>
+              <p class="text-sm text-brandGray font-sans">Specialises in fundamental skill acquisition, movement patterns, and youth progression paths.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <button id="prev-slide" class="absolute left-[-20px] top-[40%] -translate-y-1/2 bg-brandBlack/80 border border-brandGold text-brandGold w-10 h-10 rounded-full flex items-center justify-center hover:bg-brandGold hover:text-brandBlack transition-all duration-200 z-10" aria-label="Previous Slide">
+          &larr;
+        </button>
+        <button id="next-slide" class="absolute right-[-20px] top-[40%] -translate-y-1/2 bg-brandBlack/80 border border-brandGold text-brandGold w-10 h-10 rounded-full flex items-center justify-center hover:bg-brandGold hover:text-brandBlack transition-all duration-200 z-10" aria-label="Next Slide">
+          &rarr;
+        </button>
       </div>
     </section>
 
@@ -161,18 +214,10 @@ import sponsor5 from "../assets/sponsors/image_67.jpg"
             </div>
             
             <div class="flex flex-col sm:flex-row gap-4 pt-2">
-              <a 
-                href="https://www.google.com/maps/dir/?api=1&destination=51.562141,0.205735" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="flex items-center justify-center gap-2 bg-neutral-900 hover:bg-neutral-800 border border-brandGold/30 text-brandOffWhite font-sans font-bold text-sm uppercase tracking-wider px-6 py-3.5 rounded transition-all duration-200"
-              >
+              <a href="https://www.google.com/maps/dir/?api=1&destination=51.562141,0.205735" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 bg-neutral-900 hover:bg-neutral-800 border border-brandGold/30 text-brandOffWhite font-sans font-bold text-sm uppercase tracking-wider px-6 py-3.5 rounded transition-all duration-200">
                 Directions in Google Maps
               </a>
-              <a 
-                href="maps://maps.apple.com/?daddr=51.562141,0.205735" 
-                class="flex items-center justify-center gap-2 bg-neutral-900 hover:bg-neutral-800 border border-brandGold/30 text-brandOffWhite font-sans font-bold text-sm uppercase tracking-wider px-6 py-3.5 rounded transition-all duration-200"
-              >
+              <a href="maps://maps.apple.com/?daddr=51.562141,0.205735" class="flex items-center justify-center gap-2 bg-neutral-900 hover:bg-neutral-800 border border-brandGold/30 text-brandOffWhite font-sans font-bold text-sm uppercase tracking-wider px-6 py-3.5 rounded transition-all duration-200">
                 Directions in Apple Maps
               </a>
             </div>
@@ -180,24 +225,22 @@ import sponsor5 from "../assets/sponsors/image_67.jpg"
           
           <div class="relative w-full aspect-square md:aspect-[4/3] lg:aspect-square bg-neutral-900 border border-brandGold/30 rounded-lg overflow-hidden group shadow-2xl">
             <div class="absolute inset-0 opacity-40 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px] bg-brandBlack"></div>
-            
             <svg class="absolute inset-0 w-full h-full text-brandGold/10" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M -100,200 L 800,200" />
               <path d="M -100,450 L 800,450" />
               <path d="M 300,-100 L 300,800" />
-              <path d="M 500,-100 L 500,800" stroke-width="3" class="text-brandGold/20" /> <path d="M 300,450 Q 380,380 500,380" stroke-width="2" class="text-brandGold/20" /> </svg>
-            
+              <path d="M 500,-100 L 500,800" stroke-width="3" class="text-brandGold/20" />
+              <path d="M 300,450 Q 380,380 500,380" stroke-width="2" class="text-brandGold/20" />
+            </svg>
             <div class="absolute top-[34%] right-[4%] bg-black/80 border border-brandGold/20 px-3 py-1.5 rounded text-[10px] tracking-widest font-display font-bold uppercase text-brandGold">
               Hornchurch Road (A124)
             </div>
             <div class="absolute bottom-[36%] left-[32%] bg-black/80 border border-brandGold/20 px-3 py-1.5 rounded text-[10px] tracking-widest font-display font-bold uppercase text-brandOffWhite">
               Vicarage Road
             </div>
-            
             <div class="absolute top-[48%] left-[48%] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
               <span class="absolute inline-flex h-16 w-16 rounded-full bg-brandGold/20 animate-ping opacity-75"></span>
               <span class="absolute inline-flex h-8 w-8 rounded-full bg-brandGold/40 animate-pulse"></span>
-              
               <div class="relative bg-brandBlack border-2 border-brandGold p-3 rounded-full shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <svg class="w-8 h-8 text-brandGold" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M50 5 L90 25 L90 55 C90 75 50 95 50 95 C50 95 10 75 10 55 L10 25 Z" fill="black" stroke="#D4AF37" stroke-width="4"/>
@@ -205,12 +248,10 @@ import sponsor5 from "../assets/sponsors/image_67.jpg"
                 </svg>
               </div>
             </div>
-            
             <div class="absolute bottom-4 right-4 bg-brandBlack/90 border border-brandGold/20 px-4 py-2 rounded text-[11px] font-sans text-brandGray">
               GPS: <span class="text-brandOffWhite font-semibold">51.5621° N, 0.2057° E</span>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -236,3 +277,21 @@ import sponsor5 from "../assets/sponsors/image_67.jpg"
     <ContactForm />
   </main>
 </Layout>
+
+<script>
+  const carousel = document.getElementById("instructor-carousel")
+  const prevBtn = document.getElementById("prev-slide")
+  const nextBtn = document.getElementById("next-slide")
+
+  if (carousel && prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", () => {
+      const cardWidth = carousel.firstElementChild ? (carousel.firstElementChild as HTMLElement).offsetWidth + 24 : 300
+      carousel.scrollBy({ left: -cardWidth, behavior: "smooth" })
+    })
+
+    nextBtn.addEventListener("click", () => {
+      const cardWidth = carousel.firstElementChild ? (carousel.firstElementChild as HTMLElement).offsetWidth + 24 : 300
+      carousel.scrollBy({ left: cardWidth, behavior: "smooth" })
+    })
+  }
+</script>
