@@ -1,0 +1,20 @@
+---
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en-GB" class="bg-[#0B0B0B] text-[#F5F5F5] scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | Battlefield Muay Thai Gym</title>
+    <link href="[https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;600&display=swap](https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;600&display=swap)" rel="stylesheet" />
+  </head>
+  <body class="min-h-screen flex flex-col justify-between font-sans selection:bg-[#D4AF37] selection:text-[#0B0B0B]">
+    <slot />
+  </body>
+</html>
