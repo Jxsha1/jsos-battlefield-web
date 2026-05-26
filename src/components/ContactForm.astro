@@ -19,7 +19,7 @@
           Submission Successful
         </h3>
         <p class="text-sm text-brandOffWhite">
-          Thank you for booking your trial. We are now redirecting you to WhatsApp to instantly connect with our team.
+          Thank you for booking your trial. We are now redirecting you to connect instantly with our team.
         </p>
       </div>
 
@@ -57,7 +57,7 @@
               id="phone" 
               name="phone" 
               required 
-              placeholder="e.g. 07484 728 644"
+              placeholder="e.g. 07123 456 789"
               class="w-full bg-neutral-900 border border-brandGold/20 rounded px-4 py-3 text-brandOffWhite placeholder-neutral-600 focus:outline-none focus:border-brandGold transition-colors duration-200"
             />
           </div>
@@ -139,7 +139,7 @@
             id="submit-btn"
             class="w-full bg-brandGold text-brandBlack hover:bg-brandGoldDark font-display font-bold uppercase tracking-wider py-4 rounded transition-all duration-200 shadow-lg hover:shadow-brandGold/10"
           >
-            Send Request
+            Send through WhatsApp or Text
           </button>
         </div>
       </form>
@@ -170,33 +170,30 @@
       }
 
       try {
-        // Simulated local database logging interval
         await new Promise((resolve) => setTimeout(resolve, 1000))
         
         errorBanner.classList.add("hidden")
         successBanner.classList.remove("hidden")
         
-        // Format structured plain text block for the WhatsApp interface payload
-        const whatsappTarget = "447484728644"
+        // Target configured directly to Grant's primary mobile path
+        const whatsappTarget = "447562980333"
         const textPayload = `New Trial Booking Request\n\nFull Name: ${data.fullname}\nPhone Number: ${data.phone}\nEmail Address: ${data.email}\nSelected Programme: ${data.programme}\nNotes: ${data.message || "None provided"}`
         
-        // Build the safe API request string and initiate automated tab transfer
         const whatsappUrl = `https://wa.me/${whatsappTarget}?text=${encodeURIComponent(textPayload)}`
         
         form.reset()
         successBanner.scrollIntoView({ behavior: "smooth", block: "center" })
         
-        // Open the native app endpoint context
         window.open(whatsappUrl, "_blank")
       } catch (error) {
         errorBanner.classList.remove("hidden")
         const errorMsgElement = document.getElementById("error-message")
         if (errorMsgElement) {
-          errorMsgElement.innerText = "A transmission error occurred. Please try contacting Gee directly at 07484 728 644."
+          errorMsgElement.innerText = "A transmission error occurred. Please try contacting Grant directly on 07562 980 333."
         }
       } finally {
         submitButton.disabled = false
-        submitButton.innerText = "Send Request"
+        submitButton.innerText = "Send through WhatsApp or Text"
       }
     })
   }
