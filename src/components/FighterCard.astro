@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets"
+
+interface Props {
+  name: string
+  title: string
+  achievement: string
+  imageRemoteUrl: string
+}
+
+const { name, title, achievement, imageRemoteUrl } = Astro.props
+---
+
+<div class="border border-brandGold/30 bg-black/60 rounded-lg overflow-hidden shadow-xl hover:border-brandGold transition-all duration-300 group">
+  <div class="relative aspect-[3/4] bg-neutral-900 overflow-hidden">
+    <img 
+      src={imageRemoteUrl} 
+      alt={name}
+      loading="lazy"
+      decoding="async"
+      class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-brandBlack via-transparent to-transparent"></div>
+  </div>
+  <div class="p-6">
+    <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block mb-1">
+      {title}
+    </span>
+    <h3 class="text-2xl font-display font-extrabold text-brandOffWhite uppercase mb-2">
+      {name}
+    </h3>
+    <p class="text-sm text-brandGray font-sans font-normal">
+      {achievement}
+    </p>
+  </div>
+</div>
