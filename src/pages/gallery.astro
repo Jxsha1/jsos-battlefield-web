@@ -2,47 +2,51 @@
 import Layout from "../layouts/Layout.astro"
 import Header from "../components/Header.astro"
 
-// Flattened Asset Folder Structure Gallery Imports
-import fac1 from "../assets/image_68.png"
-import fac2 from "../assets/image_69.png"
-import fac3 from "../assets/image_70.png"
+// Use Vite dynamic asset compilation to prevent extension mismatch deployment breaks
+const assetFiles = import.meta.glob("../assets/image_*.{png,jpg,jpeg,svg}", { eager: true })
 
-import lad1 from "../assets/image_31.jpg"
-import lad2 from "../assets/image_32.png"
-import lad3 from "../assets/image_33.png"
+const getAssetSrc = (id: number) => {
+  const keys = Object.keys(assetFiles)
+  const match = keys.find(key => 
+    key.endsWith(`/image_${id}.png`) || 
+    key.endsWith(`/image_${id}.jpg`) || 
+    key.endsWith(`/image_${id}.jpeg`) || 
+    key.endsWith(`/image_${id}.svg`)
+  )
+  if (match) {
+    return (assetFiles[match] as any).default.src
+  }
+  return ""
+}
 
-import kid1 from "../assets/image_20.jpg"
-import kid2 from "../assets/image_23.jpg"
-import kid3 from "../assets/image_37.png"
-import kid4 from "../assets/image_41.png"
-import kid5 from "../assets/image_42.png"
-import kid6 from "../assets/image_56.png"
-import kid7 from "../assets/image_57.png"
-import kid8 from "../assets/image_61.png"
-import kid9 from "../assets/image_62.jpg"
-import kid10 from "../assets/image_74.png"
-import kid11 from "../assets/image_76.png"
-
-import ad1 from "../assets/image_16.jpg"
-import ad2 from "../assets/image_17.jpg"
-import ad3 from "../assets/image_18.jpg"
-import ad4 from "../assets/image_19.jpg"
-import ad5 from "../assets/image_21.jpg"
-import ad6 from "../assets/image_22.jpg"
-import ad7 from "../assets/image_24.jpg"
-import ad8 from "../assets/image_28.jpg"
-import ad9 from "../assets/image_29.jpg"
-import ad10 from "../assets/image_30.jpg"
-import ad11 from "../assets/image_34.png"
-import ad12 from "../assets/image_36.png"
-import ad13 from "../assets/image_45.png"
-import ad14 from "../assets/image_46.png"
-import ad15 from "../assets/image_47.png"
-import ad16 from "../assets/image_51.png"
-import ad17 from "../assets/image_54.png"
-import ad18 from "../assets/image_55.png"
-import ad19 from "../assets/image_67.jpg"
-import ad20 from "../assets/image_71.png"
+// Structured premium category definitions mapping the explicit inventory
+const categories = [
+  {
+    title: "Elite Training Facility",
+    subtitle: "A professional look inside our premium heavy bag areas, training equipment lines, and custom boxing ring setup",
+    ids: [2, 19, 20, 22, 23, 24, 27, 28, 29, 36, 37, 45, 51]
+  },
+  {
+    title: "Technical Execution",
+    subtitle: "High-intensity technical drills and tactical training combinations caught live on the canvas",
+    ids: [17, 41]
+  },
+  {
+    title: "Championship Honours",
+    subtitle: "Celebrating our historic competitive victories, local title defenses, and international gold accolades",
+    ids: [1, 16, 18, 21, 25, 30, 31, 40, 43, 44, 46, 49, 53, 56]
+  },
+  {
+    title: "Our Historical Legacy",
+    subtitle: "Decades of continuous martial arts dedication, traditional technical lineages, and community growth lines",
+    ids: [38, 39, 50, 55]
+  },
+  {
+    title: "Elite Competitors & Fighters",
+    subtitle: "The certified active team members and professional fighters representing our gym layout across global promotions",
+    ids: [11, 12, 13, 14, 57, 58, 59]
+  }
+]
 ---
 
 <Layout title="Gallery | Battlefield Muay Thai Gym">
@@ -59,73 +63,112 @@ import ad20 from "../assets/image_71.png"
       <div class="w-24 h-1 bg-brandGold mx-auto mt-6"></div>
     </div>
 
-    <section class="mb-20">
-      <h2 class="text-2xl font-display font-extrabold text-brandGold uppercase mb-6 border-l-4 border-brandGold pl-4">
-        Inside The Facility
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <img src={fac1.src} alt="Gym Facility" class="w-full h-64 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={fac2.src} alt="Gym Facility" class="w-full h-64 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={fac3.src} alt="Gym Facility" class="w-full h-64 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-      </div>
-    </section>
-
-    <section class="mb-20">
-      <h2 class="text-2xl font-display font-extrabold text-brandGold uppercase mb-6 border-l-4 border-brandGold pl-4">
-        Ladies Programme
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <img src={lad1.src} alt="Ladies Training" class="w-full h-64 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={lad2.src} alt="Ladies Training" class="w-full h-64 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={lad3.src} alt="Ladies Training" class="w-full h-64 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-      </div>
-    </section>
-
-    <section class="mb-20">
-      <h2 class="text-2xl font-display font-extrabold text-brandGold uppercase mb-6 border-l-4 border-brandGold pl-4">
-        Kids & Juniors
-      </h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <img src={kid1.src} alt="Kids Martial Arts" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={kid2.src} alt="Kids Martial Arts" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={kid3.src} alt="Kids Martial Arts" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={kid4.src} alt="Kids Martial Arts" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={kid5.src} alt="Kids Martial Arts" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={kid6.src} alt="Kids Martial Arts" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={kid7.src} alt="Kids Martial Arts" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={kid8.src} alt="Kids Martial Arts" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={kid9.src} alt="Kids Martial Arts" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={kid10.src} alt="Kids Martial Arts" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={kid11.src} alt="Kids Martial Arts" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-      </div>
-    </section>
-
-    <section class="mb-10">
-      <h2 class="text-2xl font-display font-extrabold text-brandGold uppercase mb-6 border-l-4 border-brandGold pl-4">
-        Adult Muay Thai & K1
-      </h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <img src={ad1.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad2.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad3.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad4.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad5.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad6.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad7.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad8.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad9.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad10.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad11.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad12.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad13.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad14.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad15.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad16.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad17.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad18.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad19.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-        <img src={ad20.src} alt="Adult Muay Thai" class="w-full h-48 md:h-56 object-cover rounded shadow-lg border border-brandGold/10 hover:border-brandGold transition-colors duration-300" loading="lazy" />
-      </div>
-    </section>
+    {categories.map((cat) => (
+      <section class="mb-20">
+        <div class="mb-8 border-l-4 border-brandGold pl-4">
+          <h2 class="text-2xl font-display font-extrabold text-brandGold uppercase tracking-wider">
+            {cat.title}
+          </h2>
+          <p class="text-sm text-brandGray font-sans mt-1">
+            {cat.subtitle}
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+          {cat.ids.map((id) => {
+            const src = getAssetSrc(id)
+            if (!src) return null
+            
+            return (
+              <button 
+                class="gallery-trigger-btn group aspect-square bg-neutral-900 border border-brandGold/10 hover:border-brandGold rounded overflow-hidden relative shadow-lg focus:outline-none transition-all duration-300 animate-fade-in"
+                data-src={src}
+                data-alt={`${cat.title} media specimen`}
+              >
+                <img 
+                  src={src} 
+                  alt={`${cat.title} media specimen`}
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                />
+                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span class="text-brandGold font-display font-bold text-xs uppercase tracking-widest border border-brandGold/40 px-4 py-2 bg-black/80 rounded shadow-md">
+                    Enlarge View
+                  </span>
+                </div>
+              </button>
+            )
+          })}
+        </div>
+      </section>
+    ))}
   </main>
+
+  <div 
+    id="gallery-lightbox" 
+    class="hidden fixed inset-0 z-50 overflow-y-auto p-4 bg-black/95 backdrop-blur-md flex justify-center items-center select-none transition-all duration-300"
+    role="dialog"
+    aria-label="Image Lightbox Viewer"
+  >
+    <button 
+      id="lightbox-close" 
+      class="absolute top-6 right-6 text-brandGray hover:text-brandGold text-2xl font-sans focus:outline-none z-20 w-12 h-12 flex items-center justify-center bg-black/60 rounded-full border border-neutral-800 transition-colors duration-200" 
+      aria-label="Close Lightbox"
+    >
+      ✕
+    </button>
+    <div class="max-w-5xl w-full relative max-h-[85vh] flex items-center justify-center p-2">
+      <img 
+        id="lightbox-img" 
+        src="" 
+        alt="" 
+        class="max-w-full max-h-[85vh] object-contain rounded shadow-2xl border border-brandGold/20" 
+      />
+    </div>
+  </div>
 </Layout>
+
+<script>
+  const lightbox = document.getElementById("gallery-lightbox")
+  const lightboxImg = document.getElementById("lightbox-img") as HTMLImageElement
+  const lightboxClose = document.getElementById("lightbox-close")
+  const triggerButtons = document.querySelectorAll(".gallery-trigger-btn")
+
+  if (lightbox && lightboxImg && lightboxClose) {
+    triggerButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const src = button.getAttribute("data-src") || ""
+        const alt = button.getAttribute("data-alt") || ""
+
+        lightboxImg.src = src
+        lightboxImg.alt = alt
+
+        lightbox.classList.remove("hidden")
+        document.body.classList.add("overflow-hidden")
+      })
+    })
+
+    const closeOverlay = () => {
+      lightbox.classList.add("hidden")
+      document.body.classList.remove("overflow-hidden")
+      lightboxImg.src = ""
+    }
+
+    lightboxClose.addEventListener("click", closeOverlay)
+    
+    // Dismiss configuration when selecting the backdrop masks directly
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox || event.target === lightbox.firstElementChild) {
+        closeOverlay()
+      }
+    })
+
+    // Keyboard navigation safety accessibility binds
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !lightbox.classList.contains("hidden")) {
+        closeOverlay()
+      }
+    })
+  }
+</script>
