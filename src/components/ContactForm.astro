@@ -154,11 +154,11 @@
   const submitButton = document.getElementById("submit-btn")
 
   if (form && successBanner && errorBanner && submitButton) {
-    form.addEventListener("submit", async (event) => {
+    form.addEventListener("submit", (event) => {
       event.preventDefault()
       
       submitButton.disabled = true
-      submitButton.innerText = "Processing Request..."
+      submitButton.innerText = "Opening WhatsApp..."
       
       const formData = new FormData(form)
       const data = {
@@ -170,12 +170,9 @@
       }
 
       try {
-        await new Promise((resolve) => setTimeout(resolve, 1000))
-        
         errorBanner.classList.add("hidden")
         successBanner.classList.remove("hidden")
         
-        // Target configured directly to Grant's primary mobile path
         const whatsappTarget = "447562980333"
         const textPayload = `New Trial Booking Request\n\nFull Name: ${data.fullname}\nPhone Number: ${data.phone}\nEmail Address: ${data.email}\nSelected Programme: ${data.programme}\nNotes: ${data.message || "None provided"}`
         
@@ -184,7 +181,8 @@
         form.reset()
         successBanner.scrollIntoView({ behavior: "smooth", block: "center" })
         
-        window.open(whatsappUrl, "_blank")
+        // Changing to location.href prevents mobile Safari and Chrome from treating the app redirect as an untrusted popup
+        window.location.href = whatsappUrl
       } catch (error) {
         errorBanner.classList.remove("hidden")
         const errorMsgElement = document.getElementById("error-message")
