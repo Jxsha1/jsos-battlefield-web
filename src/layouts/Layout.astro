@@ -4,14 +4,14 @@ interface Props {
 }
 
 const { title } = Astro.props
-import favIcon from "../assets/branding/image_52.png"
+import favIcon from "../assets/image_52.png"
 ---
 
 <!DOCTYPE html>
 <html lang="en-GB" class="scroll-smooth bg-brandBlack">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=w-full, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href={favIcon.src} />
     <meta name="generator" content={Astro.generator} />
     <title>{title} | Battlefield Muay Thai Gym</title>
@@ -53,7 +53,7 @@ import favIcon from "../assets/branding/image_52.png"
     
     <footer class="bg-black border-t border-brandGold/10 py-8 px-4 text-center mt-auto">
       <p class="text-xs text-brandGray font-sans">
-        &copy; {new Date().getFullYear()} Battlefield Martial Arts UK. All Rights Reserved. Entrance is via Vicarage Road.
+        © {new Date().getFullYear()} Battlefield Martial Arts UK. All Rights Reserved. Entrance is via Vicarage Road.
       </p>
     </footer>
   </body>
