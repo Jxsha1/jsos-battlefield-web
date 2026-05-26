@@ -4,17 +4,57 @@ interface Props {
 }
 
 const { title } = Astro.props
+import favIcon from "../assets/branding/image_52.png"
 ---
 
 <!DOCTYPE html>
-<html lang="en-GB" class="bg-brandBlack text-brandOffWhite scroll-smooth">
+<html lang="en-GB" class="scroll-smooth bg-brandBlack">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=w-full, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href={favIcon.src} />
+    <meta name="generator" content={Astro.generator} />
     <title>{title} | Battlefield Muay Thai Gym</title>
-    <link href="[https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;600&display=swap](https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;600&display=swap)" rel="stylesheet" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    
+    <style is:global>
+      :root {
+        --color-brandBlack: #0a0a0a;
+        --color-brandGold: #D4AF37;
+        --color-brandGoldDark: #AA8A22;
+        --color-brandOffWhite: #F5F5F5;
+        --color-brandGray: #9A9A9A;
+      }
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--color-brandBlack);
+        color: var(--color-brandOffWhite);
+      }
+      
+      .font-display {
+        font-family: 'Montserrat', sans-serif;
+      }
+      
+      /* Smooth transitions for carousel slider elements */
+      .carousel-container {
+        scrollbar-width: none;
+      }
+      .carousel-container::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
   </head>
-  <body class="min-h-screen flex flex-col justify-between font-sans selection:bg-brandGold selection:text-brandBlack">
+  <body class="min-h-screen flex flex-col antialiased">
     <slot />
+    
+    <footer class="bg-black border-t border-brandGold/10 py-8 px-4 text-center mt-auto">
+      <p class="text-xs text-brandGray font-sans">
+        &copy; {new Date().getFullYear()} Battlefield Martial Arts UK. All Rights Reserved. Entrance is via Vicarage Road.
+      </p>
+    </footer>
   </body>
 </html>
