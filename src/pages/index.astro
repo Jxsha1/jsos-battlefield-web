@@ -92,4 +92,355 @@ const lucieBio = "Lucie balances coaching across adult, junior, and kids lines a
 
           <div class="min-w-full sm:min-w-[50%] lg:min-w-[33.333%] flex flex-col justify-between snap-start border border-brandGold/20 bg-black/40 rounded-lg overflow-hidden group">
             <div class="relative aspect-[3/4] bg-neutral-900 overflow-hidden flex-shrink-0">
-              <img src={deeImg.src} alt="Dee Guirey" class="w-full h-full object-cover object-top group-hover:scale-105
+              <img src={deeImg.src} alt="Dee Guirey" class="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-500" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brandBlack via-transparent to-transparent"></div>
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <div class="space-y-2">
+                <h3 class="text-xl font-display font-extrabold text-brandOffWhite uppercase">Dee Guirey</h3>
+                <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block">Instructor</span>
+                <p class="text-sm text-brandGray font-sans leading-relaxed line-clamp-2 mb-4">
+                  {deeBio}
+                </p>
+                <button 
+                  class="show-more-btn text-xs font-display font-bold uppercase tracking-wider text-brandGold hover:text-brandOffWhite transition-colors duration-200 flex items-center gap-1 focus:outline-none"
+                  data-name="Dee Guirey"
+                  data-title="Instructor"
+                  data-bio={deeBio}
+                  data-img={deeImg.src}
+                >
+                  See More →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="min-w-full sm:min-w-[50%] lg:min-w-[33.333%] flex flex-col justify-between snap-start border border-brandGold/20 bg-black/40 rounded-lg overflow-hidden group">
+            <div class="relative aspect-[3/4] bg-neutral-900 overflow-hidden flex-shrink-0">
+              <img src={chloeImg.src} alt="Chloe Guirey" class="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-500" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brandBlack via-transparent to-transparent"></div>
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <div class="space-y-2">
+                <h3 class="text-xl font-display font-extrabold text-brandOffWhite uppercase">Chloe Guirey</h3>
+                <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block">International Instructor</span>
+                <p class="text-sm text-brandGray font-sans leading-relaxed line-clamp-2 mb-4">
+                  {chloeBio}
+                </p>
+                <button 
+                  class="show-more-btn text-xs font-display font-bold uppercase tracking-wider text-brandGold hover:text-brandOffWhite transition-colors duration-200 flex items-center gap-1 focus:outline-none"
+                  data-name="Chloe Guirey"
+                  data-title="International Instructor"
+                  data-bio={chloeBio}
+                  data-img={chloeImg.src}
+                >
+                  See More →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="min-w-full sm:min-w-[50%] lg:min-w-[33.333%] flex flex-col justify-between snap-start border border-brandGold/20 bg-black/40 rounded-lg overflow-hidden group">
+            <div class="relative aspect-[3/4] bg-neutral-900 overflow-hidden flex-shrink-0">
+              <img src={lucieImg.src} alt="Lucie Guirey" class="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-500" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brandBlack via-transparent to-transparent"></div>
+            </div>
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <div class="space-y-2">
+                <h3 class="text-xl font-display font-extrabold text-brandOffWhite uppercase">Lucie Guirey</h3>
+                <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block">Assistant Instructor</span>
+                <p class="text-sm text-brandGray font-sans leading-relaxed line-clamp-2 mb-4">
+                  {lucieBio}
+                </p>
+                <button 
+                  class="show-more-btn text-xs font-display font-bold uppercase tracking-wider text-brandGold hover:text-brandOffWhite transition-colors duration-200 flex items-center gap-1 focus:outline-none"
+                  data-name="Lucie Guirey"
+                  data-title="Assistant Instructor"
+                  data-bio={lucieBio}
+                  data-img={lucieImg.src}
+                >
+                  See More →
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <button id="prev-slide" class="absolute left-[-20px] top-[40%] -translate-y-1/2 bg-brandBlack/80 border border-brandGold text-brandGold w-10 h-10 rounded-full flex items-center justify-center hover:bg-brandGold hover:text-brandBlack transition-all duration-200 z-10" aria-label="Previous Slide">
+          ←
+        </button>
+        <button id="next-slide" class="absolute right-[-20px] top-[40%] -translate-y-1/2 bg-brandBlack/80 border border-brandGold text-brandGold w-10 h-10 rounded-full flex items-center justify-center hover:bg-brandGold hover:text-brandBlack transition-all duration-200 z-10" aria-label="Next Slide">
+          →
+        </button>
+      </div>
+    </section>
+
+    <div id="bio-modal" class="hidden fixed inset-0 z-50 overflow-y-auto p-4 bg-black/80 backdrop-blur-sm flex justify-center items-start md:items-center transition-all duration-300">
+      <div class="bg-neutral-900 border border-brandGold/30 max-w-2xl w-full rounded-lg overflow-hidden shadow-2xl relative flex flex-col md:flex-row my-4 md:my-auto animate-fade-in animate-duration-200">
+        <button id="modal-close" class="absolute top-4 right-4 text-brandGray hover:text-brandGold text-xl font-sans focus:outline-none z-20 w-8 h-8 flex items-center justify-center bg-black/50 rounded-full border border-neutral-800" aria-label="Close Profile Modal">
+          ✕
+        </button>
+        <div class="w-full md:w-2/5 aspect-[3/4] bg-neutral-950 relative flex-shrink-0">
+          <img id="modal-img" src="" alt="" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent md:hidden"></div>
+        </div>
+        <div class="w-full md:w-3/5 p-6 md:p-8 flex flex-col justify-center bg-neutral-900">
+          <h3 id="modal-name" class="text-2xl font-display font-extrabold text-brandOffWhite uppercase mb-1"></h3>
+          <span id="modal-title" class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block mb-4"></span>
+          <p id="modal-bio" class="text-sm text-brandGray font-sans leading-relaxed"></p>
+        </div>
+      </div>
+    </div>
+
+    <section class="mb-16 pt-12 border-t border-brandGold/20 text-center bg-gradient-to-b from-neutral-950 to-brandBlack rounded-lg p-8 max-w-5xl mx-auto border border-brandGold/10">
+      <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block mb-2">
+        Visual Media Portal
+      </span>
+      <h2 class="text-3xl font-display font-extrabold text-brandOffWhite uppercase tracking-tight mb-4">
+        Explore Our Full Gym Gallery
+      </h2>
+      <p class="text-sm text-brandGray font-sans max-w-xl mx-auto mb-6 leading-relaxed">
+        View our complete categorised archive including training areas, technical execution patterns, competitive championship honours, and our historical legacy collections.
+      </p>
+      <a href="/gallery" class="inline-block border border-brandGold text-brandGold hover:bg-brandGold hover:text-brandBlack font-sans font-bold px-8 py-3.5 rounded uppercase tracking-wider text-xs transition-all duration-200 shadow-md">
+        Open Media Gallery →
+      </a>
+    </section>
+
+    <Timetable />
+
+    <section id="about" class="w-full py-16 mt-16 border-t border-brandGold/20 bg-brandBlack">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block mb-2">
+          Our Legacy
+        </span>
+        <h2 class="text-3xl md:text-4xl font-display font-extrabold text-brandOffWhite uppercase tracking-tight mb-6">
+          About Battlefield Muay Thai Gym
+        </h2>
+        <div class="w-24 h-1 bg-brandGold mx-auto mb-8"></div>
+        <p class="text-lg text-brandGray font-sans leading-relaxed mb-6">
+          Established in 2005, Battlefield Muay Thai Gym is one of the premier training facilities in Essex. We cover Hornchurch, Elm Park, Upminster, and Romford. Our elite instructors focus on building confidence through competence by offering the best fitness and self defence methods available.
+        </p>
+        <p class="text-lg text-brandGray font-sans leading-relaxed">
+          Whether you are a complete beginner looking to get fit or an aspiring professional aiming for the boxing ring, we guide you through the process of physical and mental self development. Our goal is to ensure you have the capability to become a champion in life!
+        </p>
+      </div>
+    </section>
+
+    <section id="testimonials" class="w-full py-16 border-t border-brandGold/20 bg-black/40">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block mb-2">
+            Student Feedback
+          </span>
+          <h2 class="text-3xl font-display font-extrabold text-brandOffWhite uppercase tracking-tight">
+            Google Reviews & Testimonials
+          </h2>
+          <div class="w-24 h-1 bg-brandGold mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-neutral-900/60 border border-brandGold/20 p-6 rounded-lg space-y-4 shadow-xl">
+            <div class="flex items-center gap-1 text-brandGold">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="text-sm text-brandGray font-sans leading-relaxed italic">
+              "My son has been attending the kids martial arts programme for six months now. Dee is absolutely fantastic with the children, perfectly balancing serious technical discipline with an encouraging environment. His self confidence has soared since joining the squad."
+            </p>
+            <div class="border-t border-brandGold/10 pt-4 flex items-center justify-between text-xs font-sans text-brandGray">
+              <span class="font-semibold text-brandOffWhite">Sarah M.</span>
+              <span>Hornchurch Parent</span>
+            </div>
+          </div>
+
+          <div class="bg-neutral-900/60 border border-brandGold/20 p-6 rounded-lg space-y-4 shadow-xl">
+            <div class="flex items-center gap-1 text-brandGold">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="text-sm text-brandGray font-sans leading-relaxed italic">
+              "Sifu Grant is an incredible mentor with deep technical martial knowledge. The level of detail taught at this facility is second to none in Essex. Whether you want to test yourself in the boxing ring or achieve elite condition, this is the gym to choose."
+            </p>
+            <div class="border-t border-brandGold/10 pt-4 flex items-center justify-between text-xs font-sans text-brandGray">
+              <span class="font-semibold text-brandOffWhite">James T.</span>
+              <span>Adult Muay Thai Member</span>
+            </div>
+          </div>
+
+          <div class="bg-neutral-900/60 border border-brandGold/20 p-6 rounded-lg space-y-4 shadow-xl">
+            <div class="flex items-center gap-1 text-brandGold">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="text-sm text-brandGray font-sans leading-relaxed italic">
+              "The ladies only training schedules are brilliant. Highly productive, deeply supportive, and an absolute physical workout every single week. Highly recommend this setup to any woman in Upminster or Romford wanting to learn authentic self defence skills."
+            </p>
+            <div class="border-t border-brandGold/10 pt-4 flex items-center justify-between text-xs font-sans text-brandGray">
+              <span class="font-semibold text-brandOffWhite">Michelle O.</span>
+              <span>Ladies Class Member</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="location" class="w-full py-16 border-t border-brandGold/20 bg-neutral-950">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          <div class="space-y-6">
+            <span class="text-brandGold font-display font-bold text-xs tracking-widest uppercase block">
+              Find the Gym
+            </span>
+            <h2 class="text-3xl md:text-4xl font-display font-extrabold text-brandOffWhite uppercase tracking-tight">
+              Location & Directions
+            </h2>
+            <div class="w-24 h-1 bg-brandGold"></div>
+            
+            <p class="text-brandGray font-sans text-base leading-relaxed">
+              Battlefield Muay Thai Gym is located in the heart of Hornchurch. Our elite training facility features a full-sized boxing ring, professional heavy bag stations, and comprehensive technical equipment.
+            </p>
+            
+            <div class="bg-brandBlack border border-brandGold/20 p-6 rounded-lg space-y-4">
+              <div class="flex items-start gap-4">
+                <div class="text-brandGold mt-1">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-display font-bold text-sm uppercase text-brandOffWhite tracking-wider">Physical Address</h4>
+                  <p class="text-brandGray font-sans text-sm mt-1">
+                    Unit 6 rear of, 177-181 Hornchurch Road, Hornchurch, Essex, RM12 4TE
+                  </p>
+                </div>
+              </div>
+              
+              <div class="flex items-start gap-4 border-t border-brandGold/10 pt-4">
+                <div class="text-brandGold mt-1">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-display font-bold text-sm uppercase text-brandGold tracking-wider">Important Access Notice</h4>
+                  <p class="text-brandOffWhite font-sans font-semibold text-sm mt-1">
+                    Entrance is via Vicarage Road
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4 pt-2">
+              <a 
+                href="https://www.google.com/maps/dir/?api=1&destination=Battlefield+Muay+Thai+Gym+Hornchurch+Essex+RM12+4TE" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="flex items-center justify-center gap-2 bg-neutral-900 hover:bg-neutral-800 border border-brandGold/30 text-brandOffWhite font-sans font-bold text-sm uppercase tracking-wider px-6 py-3.5 rounded transition-all duration-200"
+              >
+                Directions in Google Maps
+              </a>
+              <a 
+                href="https://maps.apple.com/?q=Battlefield+Muay+Thai+Gym+Hornchurch+Essex+RM12+4TE" 
+                class="flex items-center justify-center gap-2 bg-neutral-900 hover:bg-neutral-800 border border-brandGold/30 text-brandOffWhite font-sans font-bold text-sm uppercase tracking-wider px-6 py-3.5 rounded transition-all duration-200"
+              >
+                Directions in Apple Maps
+              </a>
+            </div>
+          </div>
+          
+          <div class="relative w-full aspect-square md:aspect-[4/3] lg:aspect-square bg-neutral-900 border border-brandGold/30 rounded-lg overflow-hidden group shadow-2xl">
+            <iframe 
+              class="w-full h-full border-0 grayscale invert opacity-75 contrast-125 focus:outline-none" 
+              src="https://maps.google.com/maps?q=Battlefield%20Muay%20Thai%20Gym%20Hornchurch%20Essex&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Battlefield Muay Thai Gym Location Map"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full py-12 border-t border-brandGold/20 bg-brandBlack">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-10">
+          <h2 class="text-2xl font-display font-extrabold text-brandOffWhite uppercase tracking-tight">
+            Proudly Supported By
+          </h2>
+          <div class="w-16 h-1 bg-brandGold mx-auto mt-4"></div>
+        </div>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 max-w-4xl mx-auto opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+          <img src={sponsor1.src} alt="Delaney's" class="h-12 md:h-16 object-contain" loading="lazy" />
+          <img src={sponsor2.src} alt="Hamton Environmental Services" class="h-12 md:h-16 object-contain" loading="lazy" />
+          <img src={sponsor3.src} alt="Roof Care Company" class="h-12 md:h-16 object-contain" loading="lazy" />
+          <img src={sponsor4.src} alt="MJ Bushell Chartered Accountants" class="h-12 md:h-16 object-contain" loading="lazy" />
+          <img src={sponsor5.src} alt="A3E Local Partner" class="h-12 md:h-16 object-contain" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <ContactForm />
+  </main>
+</Layout>
+
+<script>
+  // Carousel Navigation Logic
+  const carousel = document.getElementById("instructor-carousel")
+  const prevBtn = document.getElementById("prev-slide")
+  const nextBtn = document.getElementById("next-slide")
+
+  if (carousel && prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", () => {
+      const cardWidth = carousel.firstElementChild ? (carousel.firstElementChild as HTMLElement).offsetWidth + 24 : 300
+      carousel.scrollBy({ left: -cardWidth, behavior: "smooth" })
+    })
+
+    nextBtn.addEventListener("click", () => {
+      const cardWidth = carousel.firstElementChild ? (carousel.firstElementChild as HTMLElement).offsetWidth + 24 : 300
+      carousel.scrollBy({ left: cardWidth, behavior: "smooth" })
+    })
+  }
+
+  // Interactive Profile Modal Logic
+  const modal = document.getElementById("bio-modal")
+  const modalImg = document.getElementById("modal-img") as HTMLImageElement
+  const modalName = document.getElementById("modal-name")
+  const modalTitle = document.getElementById("modal-title")
+  const modalBio = document.getElementById("modal-bio")
+  const modalClose = document.getElementById("modal-close")
+  const showMoreButtons = document.querySelectorAll(".show-more-btn")
+
+  if (modal && modalImg && modalName && modalTitle && modalBio && modalClose) {
+    showMoreButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const name = button.getAttribute("data-name") || ""
+        const title = button.getAttribute("data-title") || ""
+        const bio = button.getAttribute("data-bio") || ""
+        const img = button.getAttribute("data-img") || ""
+
+        modalImg.src = img
+        modalImg.alt = name
+        modalName.innerText = name
+        modalTitle.innerText = title
+        modalBio.innerText = bio
+
+        modal.classList.remove("hidden")
+        document.body.classList.add("overflow-hidden")
+      })
+    })
+
+    const closeModal = () => {
+      modal.classList.add("hidden")
+      document.body.classList.remove("overflow-hidden")
+    }
+
+    modalClose.addEventListener("click", closeModal)
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeModal()
+      }
+    })
+  }
+</script>
