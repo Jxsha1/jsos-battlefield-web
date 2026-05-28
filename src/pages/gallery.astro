@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro"
 import Header from "../components/Header.astro"
 
-// Use Vite dynamic asset compilation to prevent extension mismatch deployment breaks
 const assetFiles = import.meta.glob("../assets/image_*.{png,jpg,jpeg,svg}", { eager: true })
 
 const getAssetSrc = (id: number) => {
@@ -19,7 +18,6 @@ const getAssetSrc = (id: number) => {
   return ""
 }
 
-// Structured premium category definitions mapping the explicit inventory
 const categories = [
   {
     title: "Elite Training Facility",
@@ -90,7 +88,7 @@ const categories = [
                   alt={`${cat.title} media specimen`}
                   loading="lazy"
                   decoding="async"
-                  class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                  class="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-500"
                 />
                 <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <span class="text-brandGold font-display font-bold text-xs uppercase tracking-widest border border-brandGold/40 px-4 py-2 bg-black/80 rounded shadow-md">
@@ -157,14 +155,12 @@ const categories = [
 
     lightboxClose.addEventListener("click", closeOverlay)
     
-    // Dismiss configuration when selecting the backdrop masks directly
     lightbox.addEventListener("click", (event) => {
       if (event.target === lightbox || event.target === lightbox.firstElementChild) {
         closeOverlay()
       }
     })
 
-    // Keyboard navigation safety accessibility binds
     window.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && !lightbox.classList.contains("hidden")) {
         closeOverlay()
